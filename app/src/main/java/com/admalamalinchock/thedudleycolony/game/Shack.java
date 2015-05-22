@@ -1,4 +1,4 @@
-package com.admalamalinchock.thedudleycolony;
+package com.admalamalinchock.thedudleycolony.game;
 
 /**
  * Created by HoldenMalinchock on 5/19/15.
