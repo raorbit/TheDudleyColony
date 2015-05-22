@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class Tent extends Buildings
 {
+    public final int ID = 0;
     private double rate;        //like the getPrice method but we can change this for different buildings later in the main class
     public Tent(double rate)
     {

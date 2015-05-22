@@ -3,6 +3,7 @@ package com.admalamalinchock.thedudleycolony.game;
 /**
  * Created by HoldenMalinchock on 5/18/15.
  */
+
 import java.math.BigDecimal;
 public abstract class Buildings
 {
