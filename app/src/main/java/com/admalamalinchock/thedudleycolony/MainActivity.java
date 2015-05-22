@@ -88,9 +88,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            switch (position){
+                switch (position){
                 case 0:{
-                    break;
+                    return BuildingsFragment.newInstance();
+
 
                 }
                 case 1:{

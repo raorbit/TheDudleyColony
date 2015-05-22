@@ -25,5 +25,7 @@
     <color name="fire_engine_red_75">#40D01715</color>
     <color name="iris_blue_75">#4000BCD5</color>
     <!--~ Material colors 75% transparent -->
-
+    <color name="primary">#303F9F</color>
+    <color name="primary_600">#757575</color>
+    <color name="background">#212121</color>
 </resources>

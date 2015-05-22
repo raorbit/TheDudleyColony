@@ -3,10 +3,11 @@ package com.admalamalinchock.thedudleycolony;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v4.view.ViewCompat;
 
 
 /**
@@ -29,21 +30,13 @@ public class BuildingsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BuildingsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BuildingsFragment newInstance(String param1, String param2) {
+
+    public static BuildingsFragment newInstance() {
         BuildingsFragment fragment = new BuildingsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+      ///  Bundle args = new Bundle();
+      //  args.putString(ARG_PARAM1, param1);
+      //  args.putString(ARG_PARAM2, param2);
+      //  fragment.setArguments(args);
         return fragment;
     }
 
@@ -74,22 +67,7 @@ public class BuildingsFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     /**
      * This interface must be implemented by activities that contain this
