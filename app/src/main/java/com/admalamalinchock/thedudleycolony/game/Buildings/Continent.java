@@ -1,8 +1,9 @@
-package com.admalamalinchock.thedudleycolony.game;
+package com.admalamalinchock.thedudleycolony.game.Buildings;
 
 /**
  * Created by HoldenMalinchock on 5/20/15.
  */
+
 import java.math.BigDecimal;         //importing the BigDecimal so java can handle hugely ridiculous numbers
 public class Continent extends Buildings
 {

@@ -35,17 +35,35 @@ public class Calculations
         return IDgetter;
     }
 
-    public static double getPrice(int specificIDnum)        //need to finish this method, have to make sure I know what the bonues
-    {                                                       // for upgrades and presteiges is first
+    public static double getPrice(int specificIDnum)        //Still need to factor Upgrades and presteiges
+    {
 
         for(int i = 0; i<9;i++)
         {
             if(specificIDnum == i)
                 IDgetter =i;
         }
+        if(IDgetter == 0)
+            return 1.0;
+        else if(IDgetter == 1)
+            return 10.0;
+        else if(IDgetter == 2)
+            return 45.0;
+        else if(IDgetter == 3)
+            return 75.0;
+        else if(IDgetter == 4)
+            return 100.0;
+        else if(IDgetter == 5)
+            return 150.0;
+        else if(IDgetter == 6)
+            return 200.0;
+        else if(IDgetter == 7)
+            return 265.0;
+        else
+        return 350.0;
 
 
-        return 0.0;
+
     }
 
 

@@ -1,4 +1,4 @@
-package com.admalamalinchock.thedudleycolony.game;
+package com.admalamalinchock.thedudleycolony.game.Buildings;
 
 import java.math.BigDecimal;        //importing the BigDecimal so java can handle hugely ridiculous numbers
 
