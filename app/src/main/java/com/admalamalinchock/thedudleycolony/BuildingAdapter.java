@@ -3,6 +3,7 @@ package com.admalamalinchock.thedudleycolony;
 /**
  * Created by Raorbit on 5/29/2015.
  */
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.os.*;
 import android.widget.TextView;
 
 import com.admalamalinchock.thedudleycolony.game.Buildings.Buildings;
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 
 import java.util.List;
 
@@ -69,13 +71,17 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
 
     public static class BuildingViewHolder extends RecyclerView.ViewHolder {
 
-        protected ProgressBar sellProgress;
+        protected RoundCornerProgressBar progress1;
         protected Button buyButton;
 
         public BuildingViewHolder(View v) {
             super(v);
-            sellProgress =  (ProgressBar) v.findViewById(R.id.progress);
             buyButton = (Button)  v.findViewById(R.id.buy_button);
+            progress1 = (RoundCornerProgressBar) itemView.findViewById(R.id.progress);
+            progress1.setProgressColor(Color.parseColor("#ed3b27"));
+            progress1.setBackgroundColor(Color.parseColor("#808080"));
+            progress1.setMax(100);
+            progress1.setProgress(15);
         }
     }
 }
