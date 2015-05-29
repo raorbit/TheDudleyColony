@@ -1,13 +1,20 @@
 package com.admalamalinchock.thedudleycolony;
 
-import android.app.Activity;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.view.ViewCompat;
+
+import com.admalamalinchock.thedudleycolony.game.Buildings.Buildings;
+import com.admalamalinchock.thedudleycolony.game.Buildings.Tent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -19,24 +26,16 @@ import android.support.v4.view.ViewCompat;
  * create an instance of this fragment.
  */
 public class BuildingsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
 
     public static BuildingsFragment newInstance() {
         BuildingsFragment fragment = new BuildingsFragment();
-      ///  Bundle args = new Bundle();
-      //  args.putString(ARG_PARAM1, param1);
-      //  args.putString(ARG_PARAM2, param2);
-      //  fragment.setArguments(args);
+      /*  Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+      args.putString(ARG_PARAM2, param2);
+      fragment.setArguments(args);*/
         return fragment;
     }
 
@@ -47,25 +46,35 @@ public class BuildingsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buildings, container, false);
+        View v= inflater.inflate(R.layout.fragment_buildings, container, false);
+        RecyclerView recList = (RecyclerView) v.findViewById(R.id.buildingList);
+        recList.setHasFixedSize(false);
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recList.setLayoutManager(llm);
+        BuildingAdapter ba = new BuildingAdapter(createList(15));
+        recList.setAdapter(ba);
+        return v;
+    }
+    private List<Buildings> createList(int size) {
+
+        List<Buildings> result = new ArrayList<>();
+        for (int i=1; i <= size; i++) {
+            Tent ci = new Tent(1.1);
+
+            result.add(ci);
+
+        }
+
+        return result;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
 
 

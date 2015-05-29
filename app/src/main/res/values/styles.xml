@@ -6,13 +6,10 @@
         <item name="colorPrimary">@color/fire_engine_red</item>
         <item name="colorPrimaryDark">@color/greenDark</item>
         <item name="colorAccent">@color/iris_blue</item>
-        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorPrimary">@color/iris_blue</item>
         <item name="android:buttonStyle">@style/Button</item>
     </style>
 
-    <style name="AppTheme" parent="AppBaseTheme">
-
-    </style>
 
     <style name="RadioButtonWhiteCheck" parent="@android:style/Widget.CompoundButton.RadioButton">
         <item name="android:button">@drawable/radio_button_light</item>
