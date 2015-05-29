@@ -4,6 +4,8 @@ package com.admalamalinchock.thedudleycolony.game;
  * Created by HoldenMalinchock on 5/22/15.
  */
 import java.math.*;
+import com.admalamalinchock.thedudleycolony.game.Upgrades.*;
+import com.admalamalinchock.thedudleycolony.game.Buildings.*;
 public class Calculations
 {
     protected static int IDgetter;
@@ -33,38 +35,12 @@ public class Calculations
 
         }
         return IDgetter;
-    }
+    }  public static BigDecimal factorUpgrades() {
+    return new BigDecimal("Upgrades");
 
-    public static double getPrice(int specificIDnum)        //Still need to factor Upgrades and presteiges
-    {
-
-        for(int i = 0; i<9;i++)
-        {
-            if(specificIDnum == i)
-                IDgetter =i;
-        }
-        if(IDgetter == 0)
-            return 1.0;
-        else if(IDgetter == 1)
-            return 10.0;
-        else if(IDgetter == 2)
-            return 45.0;
-        else if(IDgetter == 3)
-            return 75.0;
-        else if(IDgetter == 4)
-            return 100.0;
-        else if(IDgetter == 5)
-            return 150.0;
-        else if(IDgetter == 6)
-            return 200.0;
-        else if(IDgetter == 7)
-            return 265.0;
-        else
-        return 350.0;
+}
 
 
-
-    }
 
 
 

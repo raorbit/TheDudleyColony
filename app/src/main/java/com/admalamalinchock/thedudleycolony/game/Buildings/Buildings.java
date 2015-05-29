@@ -3,14 +3,15 @@ package com.admalamalinchock.thedudleycolony.game.Buildings;
 /**
  * Created by HoldenMalinchock on 5/18/15.
  */
-
+import com.admalamalinchock.thedudleycolony.game.Calculations;
 import java.math.BigDecimal;
 public abstract class Buildings
 {
-    protected BigDecimal price;
-
+    protected BigDecimal price,rate,payout;
+    protected BigDecimal numOfBuildings;
     private String nameofBuilding = "";
-    public double rateOfGrowth;
+    public double rateOfGrowth,timeToPayout,time;
+
 
     public Buildings(){}
 
@@ -18,10 +19,10 @@ public abstract class Buildings
 
 
 
-    public Buildings(BigDecimal enteredprice, String enteredname)
+    public Buildings(BigDecimal enteredprice,BigDecimal r, String enteredname)
     {
         price = enteredprice;
-
+        rate=r;
         nameofBuilding = enteredname;
 
     }
@@ -29,7 +30,6 @@ public abstract class Buildings
     {
       return price;
     }
-    public abstract void incrementPrice();
     public String getName()
     {
         return nameofBuilding;
@@ -46,19 +46,26 @@ public abstract class Buildings
 
     }
 
+    public void  incrementPrice() {     //overriding the method so that the specific rate for the building changes
+        // the price for that building alone.
+
+
+        price.multiply(rate);
+
+
+    }
+
+    public BigDecimal Payout() {
+        time=timeToPayout;
+        payout*Calculations.factorUpgrades()*numOfBuildings;
+    }
+    public void buy()
+    {
+        numOfBuildings.add(new BigDecimal(1));
+        incrementPrice();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 }
