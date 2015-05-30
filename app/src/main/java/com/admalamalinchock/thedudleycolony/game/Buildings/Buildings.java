@@ -57,7 +57,7 @@ public abstract class Buildings
 
     public BigDecimal Payout() {
         time=timeToPayout;
-        payout*Calculations.factorUpgrades()*numOfBuildings;
+        return payout.multiply(Calculations.factorUpgrades()).multiply(numOfBuildings);
     }
     public void buy()
     {
