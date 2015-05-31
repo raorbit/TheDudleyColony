@@ -10,15 +10,15 @@ import com.admalamalinchock.thedudleycolony.game.Calculations;
 import com.admalamalinchock.thedudleycolony.uicomponents.TextRoundCornerProgressBar;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public abstract class Building
 {
     protected BigDecimal price;
     protected BigDecimal rate;
     protected BigDecimal payout;
 
-    public BigDecimal getNumOfBuildings() {
-        return numOfBuildings;
-    }
+
 
     protected BigDecimal numOfBuildings;
 
@@ -39,9 +39,15 @@ public abstract class Building
         this.payout=payout;
         this.timeToPayout=time;
         this.time=time;
+        setRounding();
+    }
+    public BigDecimal getNumOfBuildings() {
+        setRounding();
+        return numOfBuildings;
     }
     public BigDecimal getPrice()
     {
+        setRounding();
       return price;
     }
     public String getName()
@@ -52,7 +58,9 @@ public abstract class Building
     {
 
         price = newVal;
+        setRounding();
         return price;
+
 
     }
 
@@ -61,21 +69,28 @@ public abstract class Building
 
 
         price=price.multiply(rate);
-
+        setRounding();
 
     }
 
     public BigDecimal Payout() {
         time=timeToPayout;
+        setRounding();
         return payout.multiply(Calculations.factorUpgrades()).multiply(numOfBuildings);
+
     }
     public void buy()
     {
         numOfBuildings=numOfBuildings.add(new BigDecimal("1"));
         incrementPrice();
-
-
-
+        setRounding();
+     }
+    private void setRounding(){
+        price=price.setScale(2, RoundingMode.HALF_EVEN).stripTrailingZeros();
+        numOfBuildings= numOfBuildings.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
+        rate=rate.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
+        payout=payout.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
     }
+
 
 }

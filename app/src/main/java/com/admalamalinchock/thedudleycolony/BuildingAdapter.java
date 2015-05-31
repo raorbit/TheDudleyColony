@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.os.*;
 
-import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
+import com.admalamalinchock.thedudleycolony.game.Buildings.*;
 import com.admalamalinchock.thedudleycolony.uicomponents.*;
 
 import java.util.List;
@@ -36,6 +36,58 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
     @Override
     public void onBindViewHolder(final BuildingViewHolder viewHolder, int position) {
        viewHolder.bind(buildingList.get(position));
+        viewHolder.run();
+        final int pn=position;
+        viewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                switch (pn) {
+                    case 0: {
+                        viewHolder.buy(buildingList.get(0));
+                        break;
+                    }
+                    case 1:{
+                        viewHolder.buy(buildingList.get(1));
+                        break;
+                    }
+                    case 2:{
+                        viewHolder.buy(buildingList.get(2));
+                        break;
+                    }
+                    case 3:{
+                        viewHolder.buy(buildingList.get(3));
+                        break;
+                    }
+                    case 4:{
+                        viewHolder.buy(buildingList.get(4));
+                        break;
+                    }
+                    case 5:{
+                        viewHolder.buy(buildingList.get(5));
+                        break;
+                    }
+                    case 6:{
+                        viewHolder.buy(buildingList.get(6));
+                        break;
+                    }
+                    case 7:{
+                        viewHolder.buy(buildingList.get(7));
+
+                        break;
+                    }
+                    case 8:{
+                        viewHolder.buy(buildingList.get(8));
+
+                        break;
+                    }
+                    default:{
+                        viewHolder.progress1.setTextProgress("34234asd");
+                    }
+                }
+            }
+
+        });
     }
 
     @Override
@@ -44,7 +96,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         return new BuildingViewHolder(itemView);
     }
 
-    public class BuildingViewHolder extends RecyclerView.ViewHolder {
+    public class BuildingViewHolder extends RecyclerView.ViewHolder{
 
         protected TextRoundCornerProgressBar progress1;
         protected Button buyButton;
@@ -62,14 +114,15 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
             progress1.setProgress(mProgressStatus);
         }
 
-        public void buy() {
+        public void buy(Building a) {
+            b=a;
             b.buy();
             update();
         }
 
         public void update() {
-            progress1.setTextProgress(b.Payout().toString());
-            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + b.getPrice());
+            progress1.setTextProgress(b.Payout().toEngineeringString());
+            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toEngineeringString() + "\nBuy:" + b.getPrice().toEngineeringString());
         }
 
         public void bind(Building b) {
@@ -82,9 +135,11 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
             progress1.setProgress(0);
             progress1.setTextColor(Color.parseColor("#FFFFFF"));
             progress1.setTextSize(20);
-            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + b.getPrice());
-            progress1.setTextProgress(b.Payout().toString());
+            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toEngineeringString() + "\nBuy:" + b.getPrice().toEngineeringString());
+            progress1.setTextProgress(b.Payout().toEngineeringString());
         }
+
+
 
         public void run() {
             new Thread(new Runnable() {
