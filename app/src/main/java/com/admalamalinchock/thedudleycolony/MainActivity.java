@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     public class SamplePagerAdapter extends FragmentPagerAdapter {
 
-        private final String[] TITLES = {"Buildings", "Upgrades", "Achievements", "Stats", "Prestige", "ITEM SIX", "ITEM SEVEN", "ITEM EIGHT",
+        private final String[] TITLES = {"Building", "Upgrade", "Achievements", "Stats", "Prestige", "ITEM SIX", "ITEM SEVEN", "ITEM EIGHT",
                 "ITEM NINE", "ITEM TEN", "ITEM ELEVEN"};
 
         private final ArrayList<String> mTitles;

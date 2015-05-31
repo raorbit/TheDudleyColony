@@ -10,7 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.os.*;
-import com.admalamalinchock.thedudleycolony.game.Buildings.Buildings;
+
+import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
 import com.admalamalinchock.thedudleycolony.uicomponents.*;
 
 import java.util.List;
@@ -18,9 +19,9 @@ import java.util.List;
 
 public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.BuildingViewHolder> {
 
-    private List<Buildings> buildingList;
+    private List<Building> buildingList;
 
-    public BuildingAdapter(List<Buildings> x) {
+    public BuildingAdapter(List<Building> x) {
         this.buildingList =x;
 
 
@@ -46,7 +47,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
     @Override
     public BuildingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.building_layout, viewGroup,false);
-        return new BuildingViewHolder(itemView);
+        return new BuildingViewHolder(itemView,buildingList.get(i));
     }
 
     public static class BuildingViewHolder extends RecyclerView.ViewHolder {
@@ -55,8 +56,9 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         protected Button buyButton;
         public int mProgressStatus=0;
         private Handler mHandler = new Handler();
+        private Building b;
 
-        public BuildingViewHolder(View v) {
+        public BuildingViewHolder(View v,Building b) {
             super(v);
             buyButton = (Button)  v.findViewById(R.id.buy_button);
             progress1 = (TextRoundCornerProgressBar) itemView.findViewById(R.id.progress);
@@ -89,6 +91,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
                     }
                 }
             }).start();
+            this.b=b;
 
         }
         public void setProgress(float x){

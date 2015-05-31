@@ -3,7 +3,7 @@ package com.admalamalinchock.thedudleycolony.game.Upgrades;
 /**
  * Created by HoldenMalinchock on 5/27/15.
  */
-public abstract class BananaBookPro extends Upgrades
+public abstract class BananaBookPro extends Upgrade
 {
 
 

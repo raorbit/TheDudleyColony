@@ -5,20 +5,20 @@ import java.math.BigDecimal;
 /**
  * Created by HoldenMalinchock on 5/27/15.
  */
-public abstract class Upgrades
+public abstract class Upgrade
 {
     protected BigDecimal reduction;
 
     private String nameofUpgrade = "";
     public double rateOfGrowth;
 
-    public Upgrades(){}
+    public Upgrade(){}
 
 
 
 
 
-    public Upgrades(BigDecimal enteredprice, String enteredname)
+    public Upgrade(BigDecimal enteredprice, String enteredname)
     {
         reduction = enteredprice;
 

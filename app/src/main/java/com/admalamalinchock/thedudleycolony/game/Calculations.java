@@ -36,7 +36,7 @@ public class Calculations
         }
         return IDgetter;
     }  public static BigDecimal factorUpgrades() {
-    return new BigDecimal("Upgrades");
+    return new BigDecimal("Upgrade");
 
 }
 

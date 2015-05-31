@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * Created by HoldenMalinchock on 5/22/15.
  */
-public class SolarSystem extends Buildings
+public class SolarSystem extends Building
 {
     public final int ID = 8;
     private double rate;        //like the getPrice method but we can change this for different buildings later in the main class

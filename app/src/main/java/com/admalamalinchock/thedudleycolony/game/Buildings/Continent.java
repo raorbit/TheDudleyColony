@@ -5,7 +5,7 @@ package com.admalamalinchock.thedudleycolony.game.Buildings;
  */
 
 import java.math.BigDecimal;         //importing the BigDecimal so java can handle hugely ridiculous numbers
-public class Continent extends Buildings
+public class Continent extends Building
 {
     public final int ID = 6;
     private double rate;        //like the getPrice method but we can change this for different buildings later in the main class

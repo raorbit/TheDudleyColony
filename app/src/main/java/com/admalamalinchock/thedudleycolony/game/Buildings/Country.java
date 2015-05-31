@@ -5,7 +5,7 @@ import java.math.BigDecimal;         //importing the BigDecimal so java can hand
 /**
  * Created by HoldenMalinchock on 5/20/15.
  */
-public class Country extends Buildings
+public class Country extends Building
 {
     public final int ID = 5;
     private double rate;        //like the getPrice method but we can change this for different buildings later in the main class

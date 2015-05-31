@@ -5,7 +5,7 @@ import java.math.BigDecimal;         //importing the BigDecimal so java can hand
 /**
  * Created by HoldenMalinchock on 5/20/15.
  */
-public class City extends Buildings
+public class City extends Building
 {
     public final int ID = 3;
     public City(double rate)

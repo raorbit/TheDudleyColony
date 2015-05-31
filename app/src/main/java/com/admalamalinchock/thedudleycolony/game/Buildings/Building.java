@@ -5,7 +5,7 @@ package com.admalamalinchock.thedudleycolony.game.Buildings;
  */
 import com.admalamalinchock.thedudleycolony.game.Calculations;
 import java.math.BigDecimal;
-public abstract class Buildings
+public abstract class Building
 {
     protected BigDecimal price,rate,payout;
     protected BigDecimal numOfBuildings;
@@ -13,13 +13,13 @@ public abstract class Buildings
     public double rateOfGrowth,timeToPayout,time;
 
 
-    public Buildings(){}
+    public Building(){}
 
 
 
 
 
-    public Buildings(BigDecimal enteredprice,BigDecimal r, String enteredname)
+    public Building(BigDecimal enteredprice, BigDecimal r, String enteredname)
     {
         price = enteredprice;
         rate=r;

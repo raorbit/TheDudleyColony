@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.admalamalinchock.thedudleycolony.game.Buildings.Buildings;
+import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
 import com.admalamalinchock.thedudleycolony.game.Buildings.Tent;
 
 import java.util.ArrayList;
@@ -61,9 +61,9 @@ public class BuildingsFragment extends Fragment {
         recList.setAdapter(ba);
         return v;
     }
-    private List<Buildings> createList(int size) {
+    private List<Building> createList(int size) {
 
-        List<Buildings> result = new ArrayList<>();
+        List<Building> result = new ArrayList<>();
         for (int i=1; i <= size; i++) {
             Tent ci = new Tent(1.1);
 
