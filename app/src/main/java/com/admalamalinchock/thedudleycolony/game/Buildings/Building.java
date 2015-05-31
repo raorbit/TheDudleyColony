@@ -3,28 +3,42 @@ package com.admalamalinchock.thedudleycolony.game.Buildings;
 /**
  * Created by HoldenMalinchock on 5/18/15.
  */
+import android.widget.Button;
+
+import com.admalamalinchock.thedudleycolony.R;
 import com.admalamalinchock.thedudleycolony.game.Calculations;
+import com.admalamalinchock.thedudleycolony.uicomponents.TextRoundCornerProgressBar;
+
 import java.math.BigDecimal;
 public abstract class Building
 {
-    protected BigDecimal price,rate,payout;
+    protected BigDecimal price;
+    protected BigDecimal rate;
+    protected BigDecimal payout;
+
+    public BigDecimal getNumOfBuildings() {
+        return numOfBuildings;
+    }
+
     protected BigDecimal numOfBuildings;
+
     private String nameofBuilding = "";
-    public double rateOfGrowth,timeToPayout,time;
-
-
+    public double timeToPayout,time;
     public Building(){}
 
 
 
 
 
-    public Building(BigDecimal enteredprice, BigDecimal r, String enteredname)
+    public Building(BigDecimal enteredprice, BigDecimal r,BigDecimal payout, String enteredname,double time)
     {
         price = enteredprice;
         rate=r;
         nameofBuilding = enteredname;
-
+        numOfBuildings=new BigDecimal("1");
+        this.payout=payout;
+        this.timeToPayout=time;
+        this.time=time;
     }
     public BigDecimal getPrice()
     {
@@ -33,10 +47,6 @@ public abstract class Building
     public String getName()
     {
         return nameofBuilding;
-    }
-    public double getRateofGrowth()
-    {
-        return rateOfGrowth;
     }
     public BigDecimal changePrice(BigDecimal newVal)
     {
@@ -50,7 +60,7 @@ public abstract class Building
         // the price for that building alone.
 
 
-        price.multiply(rate);
+        price=price.multiply(rate);
 
 
     }
@@ -61,7 +71,7 @@ public abstract class Building
     }
     public void buy()
     {
-        numOfBuildings.add(new BigDecimal(1));
+        numOfBuildings=numOfBuildings.add(new BigDecimal("1"));
         incrementPrice();
 
 

@@ -4,12 +4,9 @@
     <color name="black">#000</color>
     <color name="white_75">#40FFFFFF</color>
     <color name="black_75">#40000000</color>
-
     <color name="light_gray_half_transparent">#80888888</color>
-
     <color name="background_window">#FFE5E5E5</color>
     <color name="greenDark">#3E5F22</color>
-
     <!-- Material colors -->
     <color name="mantis">#8BC24A</color>
     <color name="safety_orange">#FF9700</color>
@@ -17,7 +14,6 @@
     <color name="fire_engine_red">#D01715</color>
     <color name="iris_blue">#00BCD5</color>
     <!--~ Material colors -->
-
     <!-- Material colors 75% transparent -->
     <color name="mantis_75">#408BC24A</color>
     <color name="safety_orange_75">#40FF9700</color>
@@ -28,4 +24,10 @@
     <color name="primary">#303F9F</color>
     <color name="primary_600">#757575</color>
     <color name="background">#212121</color>
+    <!-- Dark Theme -->
+    <color name="StatusBarDark">#000000</color>
+    <color name="AppBarDark">#212121</color>
+    <color name="BackgroundDark">#303030</color>
+    <color name="CardDark">#424242</color>
+    <!--Light Theme-->
 </resources>

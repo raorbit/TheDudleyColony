@@ -4,7 +4,7 @@
     android:id="@+id/building_card_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    card_view:cardElevation="14dp"
+    card_view:cardElevation="15dp"
     card_view:cardUseCompatPadding="true"
     android:layout_margin="5dp">
     <LinearLayout
@@ -16,7 +16,7 @@
       <com.admalamalinchock.thedudleycolony.uicomponents.TextRoundCornerProgressBar
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".7"
+            android:layout_weight=".66"
 
             android:id="@+id/progress">
 
@@ -25,10 +25,10 @@
             android:id="@+id/buy_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".30"
+            android:layout_weight=".34"
             android:gravity="center_vertical"
-            android:text="Tents: 106\nBuy: 4.363E10"
-            android:padding="5dp"
+            android:text="Tents:106\nBuy:4.364E10"
+
             />
 
     </LinearLayout>

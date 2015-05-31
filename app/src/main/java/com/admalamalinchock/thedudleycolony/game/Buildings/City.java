@@ -8,9 +8,9 @@ import java.math.BigDecimal;         //importing the BigDecimal so java can hand
 public class City extends Building
 {
     public final int ID = 3;
-    public City(double rate)
+    public City()
     {
-        super(new BigDecimal(75),new BigDecimal(rate),"City");      //using the super class so that we can give the standard price and name of the building
+        super(new BigDecimal(1),new BigDecimal("1.1"),new BigDecimal("5"),"City",2);      //using the super class so that we can give the standard price and name of the building
 
     }
 

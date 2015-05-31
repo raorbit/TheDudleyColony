@@ -35,68 +35,80 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
 
     @Override
     public void onBindViewHolder(final BuildingViewHolder viewHolder, int position) {
-        viewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                viewHolder.setProgress(0);
-            }
-        });
+       viewHolder.bind(buildingList.get(position));
     }
 
     @Override
     public BuildingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.building_layout, viewGroup,false);
-        return new BuildingViewHolder(itemView,buildingList.get(i));
+        return new BuildingViewHolder(itemView);
     }
 
-    public static class BuildingViewHolder extends RecyclerView.ViewHolder {
+    public class BuildingViewHolder extends RecyclerView.ViewHolder {
 
         protected TextRoundCornerProgressBar progress1;
         protected Button buyButton;
-        public int mProgressStatus=0;
+        public int mProgressStatus = 0;
         private Handler mHandler = new Handler();
         private Building b;
 
-        public BuildingViewHolder(View v,Building b) {
+        public BuildingViewHolder(View v) {
             super(v);
-            buyButton = (Button)  v.findViewById(R.id.buy_button);
+
+        }
+
+        public void setProgress(float x) {
+            mProgressStatus = 0;
+            progress1.setProgress(mProgressStatus);
+        }
+
+        public void buy() {
+            b.buy();
+            update();
+        }
+
+        public void update() {
+            progress1.setTextProgress(b.Payout().toString());
+            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + b.getPrice());
+        }
+
+        public void bind(Building b) {
+            this.b = b;
+            buyButton = (Button) itemView.findViewById(R.id.buy_button);
             progress1 = (TextRoundCornerProgressBar) itemView.findViewById(R.id.progress);
             progress1.setProgressColor(Color.parseColor("#ed3b27"));
             progress1.setBackgroundColor(Color.parseColor("#808080"));
             progress1.setMax(100);
-            progress1.setProgress(100);
-            progress1.setTextProgress("6.5498E8");
+            progress1.setProgress(0);
             progress1.setTextColor(Color.parseColor("#FFFFFF"));
             progress1.setTextSize(20);
+            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + b.getPrice());
+            progress1.setTextProgress(b.Payout().toString());
+        }
+
+        public void run() {
             new Thread(new Runnable() {
-                public void run() {
-                    while (mProgressStatus < 100) {
-
-
-                        mHandler.post(new Runnable() {
-                            public void run() {
-                               progress1.setProgress(mProgressStatus);
-                            }
-                        });
-                        mProgressStatus++;
-                        if(mProgressStatus==100){
-                            mProgressStatus=0;
+            public void run () {
+                while (mProgressStatus < 100) {
+                       mHandler.post(new Runnable() {
+                        public void run() {
+                            progress1.setProgress(mProgressStatus);
                         }
-                        try {
-                            Thread.sleep(25);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                    });
+                    mProgressStatus++;
+                    if (mProgressStatus == 100) {
+                        mProgressStatus = 0;
+                    }
+                    try {
+                        Thread.sleep(25);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
-            }).start();
-            this.b=b;
+            }
+        } ). start();
+        }
 
-        }
-        public void setProgress(float x){
-            mProgressStatus=0;
-            progress1.setProgress(mProgressStatus);
-        }
     }
+
 }

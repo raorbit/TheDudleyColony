@@ -9,9 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
-import com.admalamalinchock.thedudleycolony.game.Buildings.Tent;
+import com.admalamalinchock.thedudleycolony.game.Buildings.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +23,8 @@ import java.util.List;
  * Use the {@link BuildingsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BuildingsFragment extends Fragment {
+public class BuildingsFragment extends Fragment  {
 
-    private OnFragmentInteractionListener mListener;
 
 
     public static BuildingsFragment newInstance() {
@@ -57,24 +54,58 @@ public class BuildingsFragment extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        BuildingAdapter ba = new BuildingAdapter(createList(15));
+        BuildingAdapter ba = new BuildingAdapter(createList());
         recList.setAdapter(ba);
         return v;
     }
-    private List<Building> createList(int size) {
+    private List<Building> createList() {
 
         List<Building> result = new ArrayList<>();
-        for (int i=1; i <= size; i++) {
-            Tent ci = new Tent(1.1);
+        for (int i=0; i <= 8; i++) {
+            switch (i){
+                case 0:{
+                    result.add(new Tent());
+                    break;
+                }
+                case 1:{
+                    result.add(new Shack());
+                    break;
+                }
+                case 2:{
+                    result.add(new Town());
+                    break;
+                }
+                case 3:{
+                    result.add(new City());
+                    break;
+                }
+                case 4:{
+                    result.add(new State());
+                    break;
+                }
+                case 5:{
+                    result.add(new Country());
+                    break;
+                }
+                case 6:{
+                    result.add(new Continent());
+                    break;
+                }
+                case 7:{
+                    result.add(new World());
+                    break;
+                }
+                case 8:{
+                    result.add(new SolarSystem());
+                    break;
+                }
+            }
 
-            result.add(ci);
 
         }
 
         return result;
     }
-
-
 
 
 

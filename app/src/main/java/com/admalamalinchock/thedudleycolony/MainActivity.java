@@ -3,6 +3,7 @@ package com.admalamalinchock.thedudleycolony;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         // Apply background tinting to the Android system UI when using KitKat translucent modes.
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
-
         int numberOfTabs = 5;
 
 
