@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
@@ -30,7 +30,10 @@
             android:id="@+id/buy_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight=".40" />
+            android:layout_weight=".30"
+            android:gravity="center_vertical"
+            android:text="Tents: 106\nBuy: 4.363E10"
+            android:padding="5dp" />
     </LinearLayout>
 
 
