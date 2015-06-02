@@ -54,8 +54,8 @@ public class UpgradesFragment extends Fragment  {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        BuildingAdapter ba = new BuildingAdapter();
-        recList.setAdapter(ba);
+        UpgradeAdapter ua = new UpgradeAdapter();
+        recList.setAdapter(ua);
         return v;
     }
     /**

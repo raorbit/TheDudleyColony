@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("$0");
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
         setSupportActionBar(mToolbar);
@@ -96,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 case 1:{
-                    break;
-
+                  //  return UpgradesFragment.newInstance();
+                        break;
                 }
                 case 2:{
                     return StatsFragment.newInstance();
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 case 4:{
-                    break;
+                    return PrestigeFragment.newInstance();
 
                 }
             }

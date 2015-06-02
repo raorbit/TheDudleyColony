@@ -116,4 +116,51 @@ public class Game {
     public static void setBalance(BigDecimal balance) {
         Balance = balance;
     }
+   /* private static List initializeUpgrades() {
+        List<Upgrade> result = new ArrayList<>();
+        for (int i=0; i <= 8; i++) {
+            switch (i){
+                case 0:{
+                    result.add(new Tent());
+                    break;
+                }
+                case 1:{
+                    result.add(new Shack());
+                    break;
+                }
+                case 2:{
+                    result.add(new Town());
+                    break;
+                }
+                case 3:{
+                    result.add(new City());
+                    break;
+                }
+                case 4:{
+                    result.add(new State());
+                    break;
+                }
+                case 5:{
+                    result.add(new Country());
+                    break;
+                }
+                case 6:{
+                    result.add(new Continent());
+                    break;
+                }
+                case 7:{
+                    result.add(new World());
+                    break;
+                }
+                case 8:{
+                    result.add(new SolarSystem());
+                    break;
+                }
+            }
+
+
+        }
+
+        return result;
+    }*/
 }
