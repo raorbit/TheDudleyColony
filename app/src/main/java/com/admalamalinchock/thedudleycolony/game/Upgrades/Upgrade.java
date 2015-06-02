@@ -7,10 +7,12 @@ import java.math.BigDecimal;
  */
 public abstract class Upgrade
 {
-    protected BigDecimal reduction;
+    protected BigDecimal reduction,rate;
 
     private String nameofUpgrade = "";
-    public double rateOfGrowth;
+
+    protected String description = "";
+    private Boolean isActive;
 
     public Upgrade(){}
 
@@ -18,25 +20,23 @@ public abstract class Upgrade
 
 
 
-    public Upgrade(BigDecimal enteredprice, String enteredname)
+    public Upgrade(BigDecimal enteredprice, String enteredname, String nDescription,BigDecimal multiplier)
     {
         reduction = enteredprice;
-
+        description = nDescription;
+        rate=multiplier;
         nameofUpgrade = enteredname;
+
 
     }
     public BigDecimal getPrice()
     {
         return reduction;
     }
-    public abstract void incrementPrice();
+
     public String getName()
     {
         return nameofUpgrade;
-    }
-    public double getRateofGrowth()
-    {
-        return rateOfGrowth;
     }
     public BigDecimal changePrice(BigDecimal newVal)
     {
