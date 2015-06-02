@@ -100,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 case 2:{
-                    break;
+                    return StatsFragment.newInstance();
+
 
                 }
                 case 3:{

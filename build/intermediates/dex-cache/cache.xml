@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Raorbit\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.systembartint\systembartint\1.0.3\de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287\systembartint-1.0.3.jar"
+        jar="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287">
-        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\systembartint-1.0.3-2728515163de1f978807b6c774386c18c4f836de.jar" />
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\classes-c697500682f4fea55bb9c35c580b58063a4cf82f.jar" />
     </item>
     <item
         jar="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.0.0\jars\classes.jar"
@@ -23,25 +23,11 @@
         <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\library-2.4.0-46053772e51691cc9fdf775a6eea588b002f255f.jar" />
     </item>
     <item
-        jar="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
+        jar="C:\Users\Raorbit\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.0.0\3a10b25b6820e19102e118711afe6a66c0bae123\butterknife-6.0.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\classes-c697500682f4fea55bb9c35c580b58063a4cf82f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Raorbit\Documents\Android\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
-        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-0c64c3e653ea8a930433b6066c1de0cf3114142a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
-        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-c5545542da6897a34e0cd2a7aa614635598fc991.jar" />
+        sha1="3a10b25b6820e19102e118711afe6a66c0bae123">
+        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\butterknife-6.0.0-45bd9a98de16edca43d6631ee8717ec9d6c789d7.jar" />
     </item>
     <item
         jar="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
@@ -58,11 +44,11 @@
         <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\classes-42a986b0435c0dba1b0f96ce980781f8311a0e29.jar" />
     </item>
     <item
-        jar="C:\Users\Raorbit\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.0.0\3a10b25b6820e19102e118711afe6a66c0bae123\butterknife-6.0.0.jar"
+        jar="C:\Users\Raorbit\Documents\Android\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="3a10b25b6820e19102e118711afe6a66c0bae123">
-        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\butterknife-6.0.0-45bd9a98de16edca43d6631ee8717ec9d6c789d7.jar" />
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-0c64c3e653ea8a930433b6066c1de0cf3114142a.jar" />
     </item>
     <item
         jar="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.0.0\jars\classes.jar"
@@ -70,6 +56,20 @@
         revision="22.0.1"
         sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
         <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\classes-9fa26ccda54385a486ca366099800f6b0f288733.jar" />
+    </item>
+    <item
+        jar="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-c5545542da6897a34e0cd2a7aa614635598fc991.jar" />
+    </item>
+    <item
+        jar="C:\Users\Raorbit\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.systembartint\systembartint\1.0.3\de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287\systembartint-1.0.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287">
+        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\systembartint-1.0.3-2728515163de1f978807b6c774386c18c4f836de.jar" />
     </item>
 
 </items>
