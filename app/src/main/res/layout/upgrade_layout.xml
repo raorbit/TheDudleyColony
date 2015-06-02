@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Buy"
-            android:id="@+id/button"
+            android:id="@+id/buyButton"
             android:minWidth="100dp"
             android:minHeight="60dp"
             android:layout_alignParentBottom="true"

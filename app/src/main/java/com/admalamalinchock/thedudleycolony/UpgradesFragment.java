@@ -23,12 +23,12 @@ import java.util.List;
  * Use the {@link BuildingsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BuildingsFragment extends Fragment  {
+public class UpgradesFragment extends Fragment  {
 
 
 
-    public static BuildingsFragment newInstance() {
-        BuildingsFragment fragment = new BuildingsFragment();
+    public static UpgradesFragment newInstance() {
+        UpgradesFragment fragment = new UpgradesFragment();
       /*  Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
       args.putString(ARG_PARAM2, param2);
@@ -36,7 +36,7 @@ public class BuildingsFragment extends Fragment  {
         return fragment;
     }
 
-    public BuildingsFragment() {
+    public UpgradesFragment() {
         // Required empty public constructor
     }
 
@@ -48,8 +48,8 @@ public class BuildingsFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_buildings, container, false);
-        RecyclerView recList = (RecyclerView) v.findViewById(R.id.buildingList);
+        View v= inflater.inflate(R.layout.fragment_upgrades, container, false);
+        RecyclerView recList = (RecyclerView) v.findViewById(R.id.upgradeList);
         recList.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);

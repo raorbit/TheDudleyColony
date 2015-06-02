@@ -39,6 +39,12 @@ public class Calculations
     return new BigDecimal("1");
 
 }
+    /*
+    Calculate balance using previous balance in game class and set the result using Gamne.setBalance();
+     */
+    public static void calculateBalance(){
+
+    }
 
 
 

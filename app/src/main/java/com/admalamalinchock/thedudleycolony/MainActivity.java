@@ -1,5 +1,6 @@
 package com.admalamalinchock.thedudleycolony;
 
+import com.admalamalinchock.thedudleycolony.game.Game;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         SamplePagerAdapter adapter = new SamplePagerAdapter(getSupportFragmentManager(), numberOfTabs);
         mViewPager.setAdapter(adapter);
-
+        mViewPager.setOffscreenPageLimit(5);
         mMaterialTabs.setViewPager(mViewPager);
 
 

@@ -17,13 +17,10 @@ public abstract class Building
     protected BigDecimal price;
     protected BigDecimal rate;
     protected BigDecimal payout;
-
-
-
     protected BigDecimal numOfBuildings;
-
     private String nameofBuilding = "";
     public double timeToPayout,time;
+    public int mProgressStatus;
     public Building(){}
 
 
@@ -39,6 +36,7 @@ public abstract class Building
         this.payout=payout;
         this.timeToPayout=time;
         this.time=time;
+        mProgressStatus=0;
         setRounding();
     }
     public BigDecimal getNumOfBuildings() {

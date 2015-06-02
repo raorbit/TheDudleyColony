@@ -3,26 +3,23 @@ package com.admalamalinchock.thedudleycolony;
 /**
  * Created by Raorbit on 5/29/2015.
  */
+
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.os.*;
 
-import com.admalamalinchock.thedudleycolony.game.Buildings.*;
-import com.admalamalinchock.thedudleycolony.uicomponents.*;
-
-import java.util.List;
-
+import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
+import com.admalamalinchock.thedudleycolony.game.Game;
+import com.admalamalinchock.thedudleycolony.uicomponents.TextRoundCornerProgressBar;
 
 public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.BuildingViewHolder> {
 
-    private List<Building> buildingList;
 
-    public BuildingAdapter(List<Building> x) {
-        this.buildingList =x;
+    public BuildingAdapter() {
 
 
     }
@@ -30,77 +27,32 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
 
     @Override
     public int getItemCount() {
-        return buildingList.size();
+        return Game.buildingsList.size();
     }
 
     @Override
     public void onBindViewHolder(final BuildingViewHolder viewHolder, int position) {
-       viewHolder.bind(buildingList.get(position));
+        viewHolder.bind(Game.buildingsList.get(position));
         viewHolder.run();
-        final int pn=position;
+        final int pn = position;
         viewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                switch (pn) {
-                    case 0: {
-                        viewHolder.buy(buildingList.get(0));
-                        break;
-                    }
-                    case 1:{
-                        viewHolder.buy(buildingList.get(1));
-                        break;
-                    }
-                    case 2:{
-                        viewHolder.buy(buildingList.get(2));
-                        break;
-                    }
-                    case 3:{
-                        viewHolder.buy(buildingList.get(3));
-                        break;
-                    }
-                    case 4:{
-                        viewHolder.buy(buildingList.get(4));
-                        break;
-                    }
-                    case 5:{
-                        viewHolder.buy(buildingList.get(5));
-                        break;
-                    }
-                    case 6:{
-                        viewHolder.buy(buildingList.get(6));
-                        break;
-                    }
-                    case 7:{
-                        viewHolder.buy(buildingList.get(7));
-
-                        break;
-                    }
-                    case 8:{
-                        viewHolder.buy(buildingList.get(8));
-
-                        break;
-                    }
-                    default:{
-                        viewHolder.progress1.setTextProgress("34234asd");
-                    }
-                }
+                viewHolder.buy(Game.getBuilding(pn));
             }
-
         });
     }
 
     @Override
     public BuildingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.building_layout, viewGroup,false);
+        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.building_layout, viewGroup, false);
         return new BuildingViewHolder(itemView);
     }
 
-    public class BuildingViewHolder extends RecyclerView.ViewHolder{
+    public class BuildingViewHolder extends RecyclerView.ViewHolder {
 
         protected TextRoundCornerProgressBar progress1;
         protected Button buyButton;
-        public int mProgressStatus = 0;
         private Handler mHandler = new Handler();
         private Building b;
 
@@ -109,13 +61,8 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
 
         }
 
-        public void setProgress(float x) {
-            mProgressStatus = 0;
-            progress1.setProgress(mProgressStatus);
-        }
-
         public void buy(Building a) {
-            b=a;
+            b = a;
             b.buy();
             update();
         }
@@ -139,29 +86,28 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
             progress1.setTextProgress(b.Payout().toEngineeringString());
         }
 
-
-
         public void run() {
             new Thread(new Runnable() {
-            public void run () {
-                while (mProgressStatus < 100) {
-                       mHandler.post(new Runnable() {
-                        public void run() {
-                            progress1.setProgress(mProgressStatus);
+                public void run() {
+                    while (b.mProgressStatus < 100) {
+                        mHandler.post(new Runnable() {
+                            public void run() {
+                                progress1.setProgress(b.mProgressStatus);
+                            }
+                        });
+                        b.mProgressStatus++;
+                        if (b.mProgressStatus == 100) {
+                            b.mProgressStatus = 0;
+
                         }
-                    });
-                    mProgressStatus++;
-                    if (mProgressStatus == 100) {
-                        mProgressStatus = 0;
-                    }
-                    try {
-                        Thread.sleep(25);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        try {
+                            Thread.sleep(25);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            }
-        } ). start();
+            }).start();
         }
 
     }
