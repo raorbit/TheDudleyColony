@@ -9,6 +9,8 @@ public class Achievements
 {
     protected String name = "";
     protected String description = "";
+    protected Boolean isActive = false;
+
 
     public Achievements(String title, String definition)
     {
@@ -16,6 +18,15 @@ public class Achievements
         description = definition;
 
     }
+    public Boolean getter()
+    {
+        return false;
+    }
+    public void setter()
+    {
+
+    }
+
 
 
 

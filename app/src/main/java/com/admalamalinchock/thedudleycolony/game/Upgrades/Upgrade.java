@@ -45,7 +45,17 @@ public abstract class Upgrade
         return reduction;
 
     }
-
+    public BigDecimal isActive()
+    {
+        if(isActive)
+            return rate;
+        else
+            return new BigDecimal("1");
+    }
+    public void setActive()
+    {
+        isActive = true;
+    }
 
 
 

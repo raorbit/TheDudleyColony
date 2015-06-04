@@ -9,7 +9,7 @@ public class Sunglasses extends Upgrade
 {
     public Sunglasses()
     {
-        super(new BigDecimal(1), "Sunglasses", "Gets the sun out of your eyes.",new BigDecimal(1));
+        super(new BigDecimal(45), "Sunglasses", "Gets the sun out of your eyes. Multiplies Dudley gain by 2.",new BigDecimal("2"));
 
     }
 

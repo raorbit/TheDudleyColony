@@ -9,6 +9,6 @@ public class RunningShoes extends Upgrade
 {
     public RunningShoes()
     {
-        super(new BigDecimal(1), "Running Shoes", "Lightweight shoes used for running as well as making them more comfortable than regular shoes.",new BigDecimal(1));
+        super(new BigDecimal(60), "Running Shoes", "Lightweight shoes used for running as well as making them more comfortable than regular shoes. Multiplies Dudley gain by 2.",new BigDecimal("2"));
     }
 }

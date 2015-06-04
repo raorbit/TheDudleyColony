@@ -10,6 +10,6 @@ public class Gunnars extends Upgrade
 
     public Gunnars()
     {
-        super(new BigDecimal(1), "Gunnars", "The total knowledge to all. These glasses posses the knowledge of an all knowing being.",new BigDecimal(1));
+        super(new BigDecimal(4000), "Gunnars", "The total knowledge to all. These glasses posses the knowledge of an all knowing being. Multiplies Dudley gain by 10.",new BigDecimal("10"));
     }
 }

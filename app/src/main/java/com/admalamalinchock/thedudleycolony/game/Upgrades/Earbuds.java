@@ -10,6 +10,6 @@ public class Earbuds extends Upgrade
 
     public Earbuds()
     {
-        super(new BigDecimal(1), "Earbuds", "Small in-ear devices to play audio. Mostly used for music. The music increases the production of the Dudleys by giving them personalization",new BigDecimal(1));
+        super(new BigDecimal(150), "Earbuds", "Small in-ear devices to play audio. Mostly used for music. The music increases the production of the Dudleys by giving them personalization. Multiplies Dudley gain by 2.5.",new BigDecimal("2.5"));
     }
 }

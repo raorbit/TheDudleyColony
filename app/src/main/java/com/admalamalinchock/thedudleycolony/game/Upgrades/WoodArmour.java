@@ -9,6 +9,6 @@ public class WoodArmour extends Upgrade
 {
     public WoodArmour()
     {
-        super(new BigDecimal(1), "Wood Armour", "Little to no protection but its better than nothing.",new BigDecimal(1));
+        super(new BigDecimal(195), "Wood Armour", "Little to no protection but its better than nothing. Multiplies Dudley gain by 2.75.",new BigDecimal("2.75"));
     }
 }

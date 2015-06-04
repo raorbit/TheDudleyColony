@@ -9,6 +9,6 @@ public class Pistol extends Upgrade
 {
     public Pistol()
     {
-        super(new BigDecimal(1), "Pistol", "A basic weapon. Requires a skilled shot. Its not an army without weapons.",new BigDecimal(1));
+        super(new BigDecimal(375), "Pistol", "A basic weapon. Requires a skilled shot. Its not an army without weapons. Multiplies Dudley gain by 4.",new BigDecimal("4"));
     }
 }

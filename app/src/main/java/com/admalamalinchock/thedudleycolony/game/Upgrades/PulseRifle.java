@@ -9,6 +9,6 @@ public class PulseRifle extends Upgrade
 {
     public PulseRifle()
     {
-        super(new BigDecimal(1), "Pulse Rifle", "The most powerful weapon of its time.",new BigDecimal(1));
+        super(new BigDecimal(600), "Pulse Rifle", "The most powerful weapon of its time.Multiplies Dudley gain by 4.5",new BigDecimal("4.5"));
     }
 }

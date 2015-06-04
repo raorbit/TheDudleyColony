@@ -9,6 +9,6 @@ public class DiamondArmour extends Upgrade
 {
     public DiamondArmour()
     {
-        super(new BigDecimal(1), "Diamond Armour", "The second most powerful armour possible. Crafted from pure diamonds and cut to perfectly fit the wearer",new BigDecimal(1));
+        super(new BigDecimal(235), "Diamond Armour", "The second most powerful armour possible. Crafted from pure diamonds and cut to perfectly fit the wearer. Multiplies Dudley gain by 2.75.",new BigDecimal("2.75"));
     }
 }

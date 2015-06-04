@@ -9,6 +9,6 @@ public class Headset extends Upgrade
 {
     public Headset()
     {
-        super(new BigDecimal(1), "Headset", "Over the ear audio out putters to improve sounds. Also considered very fashionable",new BigDecimal(1));
+        super(new BigDecimal(165), "Headset", "Over the ear audio out putters to improve sounds. Also considered very fashionable. Multiplies Dudley gain by 2.5.",new BigDecimal("2.5"));
     }
 }
