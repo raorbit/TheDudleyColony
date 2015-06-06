@@ -9,6 +9,6 @@ public class SteelArmour extends Upgrade
 {
     public SteelArmour()
     {
-        super(new BigDecimal(1), "Steel Armour", "Better than Iron but not the best.",new BigDecimal(1));
+        super(new BigDecimal(215), "Steel Armour", "Better than Iron but not the best. Multiplies Dudley gain by 2.75.",new BigDecimal("2.75"));
     }
 }

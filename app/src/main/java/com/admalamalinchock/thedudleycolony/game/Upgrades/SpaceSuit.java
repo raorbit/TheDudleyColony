@@ -9,6 +9,6 @@ public class SpaceSuit extends Upgrade
 {
     public SpaceSuit()
     {
-        super(new BigDecimal(1), "Space Suit", "A suit that you can use to get around in space and perform maintenance tasks on aircraft.",new BigDecimal(1));
+        super(new BigDecimal(635), "Space Suit", "A suit that you can use to get around in space and perform maintenance tasks on aircraft. Multiplies Dudley gain by 5.",new BigDecimal("5"));
     }
 }

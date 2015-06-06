@@ -9,6 +9,6 @@ public class Hat extends Upgrade
 {
     public Hat()
     {
-        super(new BigDecimal(1), "Hat", "A simple cover-up to block the sun off the face.",new BigDecimal(1));
+        super(new BigDecimal(15), "Hat", "A simple cover-up to block the sun off the face. Multiplies Dudley gain by 2.",new BigDecimal("2"));
     }
 }

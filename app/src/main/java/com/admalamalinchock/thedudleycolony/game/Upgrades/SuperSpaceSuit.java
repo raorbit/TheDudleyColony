@@ -9,6 +9,6 @@ public class SuperSpaceSuit extends Upgrade
 {
     public SuperSpaceSuit()
     {
-        super(new BigDecimal(1), "Super Space Suit", "Not combat ready but lasts much longer than the regular suit. No more running out of oxygen!",new BigDecimal(1));
+        super(new BigDecimal(680), "Super Space Suit", "Not combat ready but lasts much longer than the regular suit. No more running out of oxygen! Multiplies Dudley gain by 5.",new BigDecimal("5"));
     }
 }
