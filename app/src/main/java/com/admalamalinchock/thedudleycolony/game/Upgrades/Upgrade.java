@@ -8,33 +8,23 @@ import java.math.BigDecimal;
 public abstract class Upgrade
 {
     protected BigDecimal reduction,rate;
-
     private String nameofUpgrade = "";
-
-
     protected String description = "";
     private Boolean isActive;
-
     public Upgrade(){}
-
-
-
-
-
     public Upgrade(BigDecimal enteredprice, String enteredname, String nDescription,BigDecimal multiplier)
     {
         reduction = enteredprice;
         description = nDescription;
         rate=multiplier;
         nameofUpgrade = enteredname;
-
+        isActive=false;
 
     }
     public BigDecimal getPrice()
     {
         return reduction;
     }
-
     public String getName()
     {
         return nameofUpgrade;
@@ -46,12 +36,15 @@ public abstract class Upgrade
         return reduction;
 
     }
-    public BigDecimal isActive()
+    public BigDecimal getMultiplier()
     {
         if(isActive)
             return rate;
         else
             return new BigDecimal("1");
+    }
+    public boolean isActive(){
+        return isActive;
     }
     public void setActive()
     {

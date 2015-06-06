@@ -6,11 +6,13 @@ package com.admalamalinchock.thedudleycolony;
 
 import android.graphics.Color;
 import android.os.Handler;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
@@ -34,7 +36,10 @@ public class UpgradeAdapter extends RecyclerView.Adapter<UpgradeAdapter.UpgradeV
 
     @Override
     public void onBindViewHolder(final UpgradeViewHolder viewHolder, int position) {
-        viewHolder.bind(Game.getUpgrade(position));
+        Upgrade x=Game.getUpgrade(position);
+        if(!x.isActive()) {
+            viewHolder.bind(x);
+        }
 
     }
 
@@ -49,7 +54,6 @@ public class UpgradeAdapter extends RecyclerView.Adapter<UpgradeAdapter.UpgradeV
         private Upgrade u;
         private Button buyButton;
         private TextView uTitle,uDescription;
-
         public UpgradeViewHolder(View v) {
             super(v);
         }
