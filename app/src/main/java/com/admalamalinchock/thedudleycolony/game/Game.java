@@ -45,46 +45,7 @@ public class Game {
         Balance=new BigDecimal("0");
     }
     public static Building getBuilding(int i){
-        Building x=null;
-        switch (i){
-            case 0:{
-                x=buildingsList.get(i);
-                break;
-            }
-            case 1:{
-                x=buildingsList.get(i);
-                break;
-            }
-            case 2:{
-                x=buildingsList.get(i);
-                break;
-            }
-            case 3:{
-                x=buildingsList.get(i);
-                break;
-            }
-            case 4:{
-                x=buildingsList.get(i);
-                break;
-            }
-            case 5:{
-                x=buildingsList.get(i);
-                break;
-            }
-            case 6:{
-                x=buildingsList.get(i);
-                break;
-            }
-            case 7:{
-                x=buildingsList.get(i);
-                break;
-            }
-            case 8:{
-                x=buildingsList.get(i);
-                break;
-            }
-        }
-        return x;
+        return buildingsList.get(i);
     }
     public static void setBuilding(Building x,int i){
         buildingsList.set(i,x);
@@ -147,7 +108,7 @@ public class Game {
     }
     private static List initializeUpgrades() {
         List<Upgrade> result = new ArrayList<>();
-        for (int i=0; i <= 8; i++) {
+        for (int i=0; i <= 24; i++) {
             switch (i){
                 case 0:{
                     result.add(new Clothes());
@@ -247,6 +208,6 @@ public class Game {
     }
     public static Upgrade getUpgrade(int i){
 
-        return null;
+        return upgradesList.get(i);
     }
 }

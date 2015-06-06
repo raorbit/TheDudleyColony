@@ -11,6 +11,7 @@ public abstract class Upgrade
 
     private String nameofUpgrade = "";
 
+
     protected String description = "";
     private Boolean isActive;
 
@@ -56,7 +57,9 @@ public abstract class Upgrade
     {
         isActive = true;
     }
-
+    public String getDescription() {
+        return description;
+    }
 
 
 }

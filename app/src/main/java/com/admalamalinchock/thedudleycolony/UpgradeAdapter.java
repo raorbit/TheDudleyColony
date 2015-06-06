@@ -34,6 +34,7 @@ public class UpgradeAdapter extends RecyclerView.Adapter<UpgradeAdapter.UpgradeV
 
     @Override
     public void onBindViewHolder(final UpgradeViewHolder viewHolder, int position) {
+        viewHolder.bind(Game.getUpgrade(position));
 
     }
 
@@ -67,6 +68,8 @@ public class UpgradeAdapter extends RecyclerView.Adapter<UpgradeAdapter.UpgradeV
             buyButton=(Button) itemView.findViewById(R.id.buyButton);
             uTitle=(TextView) itemView.findViewById(R.id.upgrade_title);
             uDescription=(TextView) itemView.findViewById(R.id.upgrade_description);
+            uTitle.setText(u.getName());
+            uDescription.setText(u.getDescription());
 
         }
 

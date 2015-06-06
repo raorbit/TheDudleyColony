@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 case 1:{
-                  //  return UpgradesFragment.newInstance();
-                        break;
+                    return UpgradesFragment.newInstance();
+
                 }
                 case 2:{
                     return StatsFragment.newInstance();
