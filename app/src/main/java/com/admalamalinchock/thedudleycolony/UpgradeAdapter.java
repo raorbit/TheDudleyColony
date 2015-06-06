@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
 import com.admalamalinchock.thedudleycolony.game.Game;
@@ -45,7 +46,9 @@ public class UpgradeAdapter extends RecyclerView.Adapter<UpgradeAdapter.UpgradeV
     public class UpgradeViewHolder extends RecyclerView.ViewHolder {
 
         private Upgrade u;
-        protected Button buyButton;
+        private Button buyButton;
+        private TextView uTitle,uDescription;
+
         public UpgradeViewHolder(View v) {
             super(v);
         }
@@ -62,6 +65,8 @@ public class UpgradeAdapter extends RecyclerView.Adapter<UpgradeAdapter.UpgradeV
         public void bind(Upgrade u) {
             this.u=u;
             buyButton=(Button) itemView.findViewById(R.id.buyButton);
+            uTitle=(TextView) itemView.findViewById(R.id.upgrade_title);
+            uDescription=(TextView) itemView.findViewById(R.id.upgrade_description);
 
         }
 

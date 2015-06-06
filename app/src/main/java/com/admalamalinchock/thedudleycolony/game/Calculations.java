@@ -43,7 +43,7 @@ public class Calculations
     Calculate balance using previous balance in game class and set the result using Gamne.setBalance();
      */
     public static void calculateBalance(){
-        
+
 
     }
 
