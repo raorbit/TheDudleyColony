@@ -1,6 +1,9 @@
 package com.admalamalinchock.thedudleycolony;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.admalamalinchock.thedudleycolony.game.Game;
 

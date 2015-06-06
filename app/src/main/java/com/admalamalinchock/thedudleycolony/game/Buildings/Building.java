@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.admalamalinchock.thedudleycolony.R;
 import com.admalamalinchock.thedudleycolony.game.Calculations;
+import com.admalamalinchock.thedudleycolony.game.Game;
 import com.admalamalinchock.thedudleycolony.uicomponents.TextRoundCornerProgressBar;
 
 import java.math.BigDecimal;
@@ -32,7 +33,7 @@ public abstract class Building
         price = enteredprice;
         rate=r;
         nameofBuilding = enteredname;
-        numOfBuildings=new BigDecimal("1");
+        numOfBuildings=new BigDecimal("0");
         this.payout=payout;
         this.timeToPayout=time;
         this.time=time;
@@ -71,11 +72,16 @@ public abstract class Building
 
     }
 
-    public BigDecimal Payout() {
+    public void  Payout() {
         time=timeToPayout;
-        setRounding();
-        return payout.multiply(Calculations.factorUpgrades()).multiply(numOfBuildings);
+        Game.addToBalance(getPayout());
 
+    }
+    public BigDecimal getPayout(){
+       return payout.multiply(getMultiplier());
+    }
+    public BigDecimal getMultiplier(){
+        return Calculations.factorUpgrades().multiply(numOfBuildings);
     }
     public void buy()
     {
@@ -88,6 +94,10 @@ public abstract class Building
         numOfBuildings= numOfBuildings.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
         rate=rate.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
         payout=payout.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
+    }
+    public boolean isFirstBuilding(){
+        return numOfBuildings.equals(new BigDecimal("0"));
+
     }
 
 

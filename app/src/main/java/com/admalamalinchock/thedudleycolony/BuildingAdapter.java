@@ -18,9 +18,7 @@ import com.admalamalinchock.thedudleycolony.uicomponents.TextRoundCornerProgress
 
 public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.BuildingViewHolder> {
 
-
     public BuildingAdapter() {
-
 
     }
 
@@ -33,12 +31,15 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
     @Override
     public void onBindViewHolder(final BuildingViewHolder viewHolder, int position) {
         viewHolder.bind(Game.buildingsList.get(position));
-        viewHolder.run();
         final int pn = position;
         viewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(Game.getBuilding(pn).isFirstBuilding()) {
+                    viewHolder.run();
+                }
                 viewHolder.buy(Game.getBuilding(pn));
+
             }
         });
     }
@@ -58,7 +59,6 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
 
         public BuildingViewHolder(View v) {
             super(v);
-
         }
 
         public void buy(Building a) {
@@ -68,7 +68,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         }
 
         public void update() {
-            progress1.setTextProgress(b.Payout().toEngineeringString());
+            progress1.setTextProgress(b.getPayout().toEngineeringString());
             buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toEngineeringString() + "\nBuy:" + b.getPrice().toEngineeringString());
         }
 
@@ -83,7 +83,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
             progress1.setTextColor(Color.parseColor("#FFFFFF"));
             progress1.setTextSize(20);
             buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toEngineeringString() + "\nBuy:" + b.getPrice().toEngineeringString());
-            progress1.setTextProgress(b.Payout().toEngineeringString());
+            progress1.setTextProgress(b.getPayout().toEngineeringString());
         }
 
         public void run() {
@@ -98,6 +98,8 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
                         b.mProgressStatus++;
                         if (b.mProgressStatus == 100) {
                             b.mProgressStatus = 0;
+                            b.Payout();
+
 
                         }
                         try {

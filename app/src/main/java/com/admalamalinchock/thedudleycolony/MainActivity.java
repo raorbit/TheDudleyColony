@@ -4,7 +4,6 @@ import com.admalamalinchock.thedudleycolony.game.Game;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,15 +11,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import de.greenrobot.event.EventBus;
 import io.karim.MaterialTabs;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     @InjectView(R.id.toolbar)
     Toolbar mToolbar;
@@ -36,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("$0");
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+        mToolbar.setTitle("$" + Game.getBalance());
         setSupportActionBar(mToolbar);
+
 
         // Apply background tinting to the Android system UI when using KitKat translucent modes.
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
@@ -50,17 +52,37 @@ public class MainActivity extends AppCompatActivity {
         SamplePagerAdapter adapter = new SamplePagerAdapter(getSupportFragmentManager(), numberOfTabs);
         mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(5);
-        mMaterialTabs.setViewPager(mViewPager);
-
-
-        final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
+        mMaterialTabs.setViewPager(mViewPager); final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
         mViewPager.setPageMargin(pageMargin);
+
     }
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
 
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
 
+    public void onEvent(BalanceEvent event){
+    Log.d(event.message, "outcome = ");
+        final String f=event.message;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
 
+//stuff that updates ui
+
+                mToolbar.setTitle(f);
+            }
+        });
+    }
 
     public class SamplePagerAdapter extends FragmentPagerAdapter {
 

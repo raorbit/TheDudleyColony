@@ -26,7 +26,6 @@ import java.util.List;
 public class BuildingsFragment extends Fragment  {
 
 
-
     public static BuildingsFragment newInstance() {
         BuildingsFragment fragment = new BuildingsFragment();
       /*  Bundle args = new Bundle();
@@ -56,6 +55,7 @@ public class BuildingsFragment extends Fragment  {
         recList.setLayoutManager(llm);
         BuildingAdapter ba = new BuildingAdapter();
         recList.setAdapter(ba);
+        recList.hasFixedSize();
         return v;
     }
     /**

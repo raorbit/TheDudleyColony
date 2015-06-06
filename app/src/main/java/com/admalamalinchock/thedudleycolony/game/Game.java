@@ -1,7 +1,11 @@
 package com.admalamalinchock.thedudleycolony.game;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.*;
+
+import com.admalamalinchock.thedudleycolony.*;
 import com.admalamalinchock.thedudleycolony.game.Buildings.*;
 import com.admalamalinchock.thedudleycolony.game.Upgrades.BananaBook;
 import com.admalamalinchock.thedudleycolony.game.Upgrades.Clothes;
@@ -30,6 +34,8 @@ import com.admalamalinchock.thedudleycolony.game.Upgrades.SuperSpaceSuit;
 import com.admalamalinchock.thedudleycolony.game.Upgrades.Upgrade;
 import com.admalamalinchock.thedudleycolony.game.Upgrades.WoodArmour;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by Rahul Admala on 5/29/15.
  */
@@ -42,8 +48,10 @@ public class Game {
     public static void setup(){
         buildingsList=initializeBuildings();
         upgradesList=initializeUpgrades();
+
         Balance=new BigDecimal("0");
     }
+
     public static Building getBuilding(int i){
         return buildingsList.get(i);
     }
@@ -103,8 +111,9 @@ public class Game {
     public static void setBalance(BigDecimal balance) {
         Balance = balance;
     }
-    public String convertToScientificNotation(BigDecimal in){
-        return String.format("%6.2e",in.toString());
+    public static String convertToScientificNotation(BigDecimal in){
+        NumberFormat formatter = new DecimalFormat("0.#####E0");
+        return formatter.format(in.toString());
     }
     private static List initializeUpgrades() {
         List<Upgrade> result = new ArrayList<>();
@@ -209,6 +218,10 @@ public class Game {
     public static Upgrade getUpgrade(int i){
 
         return upgradesList.get(i);
+    }
+    public static void addToBalance(BigDecimal a){
+        Balance=Balance.add(a);
+        EventBus.getDefault().post("$"+new BalanceEvent(Balance.toString()));
     }
 
 }
