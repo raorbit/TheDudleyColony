@@ -111,10 +111,6 @@ public class Game {
     public static void setBalance(BigDecimal balance) {
         Balance = balance;
     }
-    public static String convertToScientificNotation(BigDecimal in){
-        NumberFormat formatter = new DecimalFormat("0.#####E0");
-        return formatter.format(in.toString());
-    }
     private static List initializeUpgrades() {
         List<Upgrade> result = new ArrayList<>();
         for (int i=0; i <= 24; i++) {
@@ -221,7 +217,7 @@ public class Game {
     }
     public static void addToBalance(BigDecimal a){
         Balance=Balance.add(a);
-        EventBus.getDefault().post("$"+new BalanceEvent(Balance.toString()));
+        EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
     }
 
 }

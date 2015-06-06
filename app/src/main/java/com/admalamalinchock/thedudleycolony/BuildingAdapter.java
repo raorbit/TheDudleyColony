@@ -68,8 +68,8 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         }
 
         public void update() {
-            progress1.setTextProgress(b.getPayout().toEngineeringString());
-            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toEngineeringString() + "\nBuy:" + b.getPrice().toEngineeringString());
+            progress1.setTextProgress(b.getPayout().toString());
+            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + b.getPrice().toString());
         }
 
         public void bind(Building b) {
@@ -82,8 +82,8 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
             progress1.setProgress(0);
             progress1.setTextColor(Color.parseColor("#FFFFFF"));
             progress1.setTextSize(20);
-            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toEngineeringString() + "\nBuy:" + b.getPrice().toEngineeringString());
-            progress1.setTextProgress(b.getPayout().toEngineeringString());
+            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + b.getPrice().toString());
+            progress1.setTextProgress(b.getPayout().toString());
         }
 
         public void run() {

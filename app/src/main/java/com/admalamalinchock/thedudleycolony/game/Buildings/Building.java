@@ -38,17 +38,17 @@ public abstract class Building
         this.timeToPayout=time;
         this.time=time;
         mProgressStatus=0;
-        setRounding();
+        setScale();
     }
     public BigDecimal getNumOfBuildings() {
-        setRounding();
+    setScale();
         return numOfBuildings;
     }
     public BigDecimal getPrice()
     {
-        setRounding();
+        setScale();
       return price;
-    }
+            }
     public String getName()
     {
         return nameofBuilding;
@@ -57,27 +57,26 @@ public abstract class Building
     {
 
         price = newVal;
-        setRounding();
         return price;
 
 
     }
 
-    public void  incrementPrice() {     //overriding the method so that the specific rate for the building changes
-        // the price for that building alone.
-
+    public void  incrementPrice() {
 
         price=price.multiply(rate);
-        setRounding();
+        setScale();
 
     }
 
     public void  Payout() {
         time=timeToPayout;
+        setScale();
         Game.addToBalance(getPayout());
 
     }
     public BigDecimal getPayout(){
+        setScale();
        return payout.multiply(getMultiplier());
     }
     public BigDecimal getMultiplier(){
@@ -87,16 +86,16 @@ public abstract class Building
     {
         numOfBuildings=numOfBuildings.add(new BigDecimal("1"));
         incrementPrice();
-        setRounding();
+        setScale();
      }
-    private void setRounding(){
-        price=price.setScale(2, RoundingMode.HALF_EVEN).stripTrailingZeros();
-        numOfBuildings= numOfBuildings.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
-        rate=rate.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
-        payout=payout.setScale(5, RoundingMode.HALF_EVEN).stripTrailingZeros();
-    }
     public boolean isFirstBuilding(){
-        return numOfBuildings.equals(new BigDecimal("0"));
+        return numOfBuildings.intValue()==0;
+
+    }
+    public void setScale(){
+       payout= payout.setScale(2).stripTrailingZeros();
+       numOfBuildings=   numOfBuildings.setScale(2).stripTrailingZeros();
+       price= price.setScale(2).stripTrailingZeros();
 
     }
 
