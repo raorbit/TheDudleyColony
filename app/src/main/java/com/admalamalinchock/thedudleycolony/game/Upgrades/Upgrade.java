@@ -1,7 +1,6 @@
 package com.admalamalinchock.thedudleycolony.game.Upgrades;
-
+import com.admalamalinchock.thedudleycolony.game.Game;
 import java.math.BigDecimal;
-
 /**
  * Created by HoldenMalinchock on 5/27/15.
  */
@@ -19,7 +18,6 @@ public abstract class Upgrade
         rate=multiplier;
         nameofUpgrade = enteredname;
         isActive=false;
-
     }
     public BigDecimal getPrice()
     {
@@ -29,12 +27,9 @@ public abstract class Upgrade
     {
         return nameofUpgrade;
     }
-    public BigDecimal changePrice(BigDecimal newVal)
-    {
-
+    public BigDecimal changePrice(BigDecimal newVal){
         reduction = newVal;
         return reduction;
-
     }
     public BigDecimal getMultiplier()
     {
@@ -53,6 +48,12 @@ public abstract class Upgrade
     public String getDescription() {
         return description;
     }
-
-
+    public boolean buy(){
+        if(getPrice().compareTo(Game.getBalance())<=0) {
+            Game.subtractFromBalance(getPrice());
+            setActive();
+            return true;
+        }
+        return false;
+    }
 }

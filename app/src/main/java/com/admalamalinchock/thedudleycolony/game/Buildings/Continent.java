@@ -11,7 +11,7 @@ public class Continent extends Building
 
     public Continent()
     {
-        super(new BigDecimal(1),new BigDecimal("1.1"),new BigDecimal("5"),"Continent",2);
+        super(new BigDecimal(1),new BigDecimal("1.1"),new BigDecimal("5"),"Continent",2,6);
     }
 
 }

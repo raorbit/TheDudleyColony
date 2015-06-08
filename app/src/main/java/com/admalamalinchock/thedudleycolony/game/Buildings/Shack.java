@@ -11,6 +11,6 @@ public class Shack extends Building
        //like the getPrice method but we can change this for different buildings later in the main class
   public Shack()
   {
-    super(new BigDecimal(1),new BigDecimal("1.1"),new BigDecimal("5"),"Shack",2);
+    super(new BigDecimal(1),new BigDecimal("1.1"),new BigDecimal("5"),"Shack",2,1);
   }
 }

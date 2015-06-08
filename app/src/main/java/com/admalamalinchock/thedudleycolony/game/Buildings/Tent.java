@@ -11,7 +11,7 @@ public class Tent extends Building
            //like the getPrice method but we can change this for different buildings later in the main class
     public Tent()
     {
-        super(new BigDecimal(1),new BigDecimal("1.1"),new BigDecimal("5"),"Tent",2);       //using the super class so that we can give the standard price and name of the building
+        super(new BigDecimal("1"),new BigDecimal("1.1"),new BigDecimal("5"),"Tent",2,0);       //using the super class so that we can give the standard price and name of the building
 
     }
 

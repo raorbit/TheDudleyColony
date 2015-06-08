@@ -1,62 +1,33 @@
 package com.admalamalinchock.thedudleycolony.game;
-
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.*;
-
 import com.admalamalinchock.thedudleycolony.*;
 import com.admalamalinchock.thedudleycolony.game.Buildings.*;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.BananaBook;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Clothes;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.DiamondArmour;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Earbuds;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.ExoArmour;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.ExoHelmet;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.ExoSpaceSuit;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Gunnars;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Hat;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Headset;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Helmet;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.IBanana;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.IronArmour;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.PersonalSpaceships;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Pistol;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.PulsePistol;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.PulseRifle;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Rifle;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.RunningShoes;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Shoes;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.SpaceSuit;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.SteelArmour;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Sunglasses;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.SuperSpaceSuit;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.Upgrade;
-import com.admalamalinchock.thedudleycolony.game.Upgrades.WoodArmour;
-
+import com.admalamalinchock.thedudleycolony.game.Upgrades.*;
 import de.greenrobot.event.EventBus;
-
 /**
  * Created by Rahul Admala on 5/29/15.
  */
 public class Game {
     public static List<Building> buildingsList;
     public static List<Upgrade> upgradesList;
+    public static List<Upgrade> activatedUpgradesList;
     private static BigDecimal Balance;
-
-
     public static void setup(){
         buildingsList=initializeBuildings();
         upgradesList=initializeUpgrades();
-
-        Balance=new BigDecimal("0");
+        activatedUpgradesList=new ArrayList<>();
+        Balance=new BigDecimal("1");
     }
-
     public static Building getBuilding(int i){
         return buildingsList.get(i);
     }
     public static void setBuilding(Building x,int i){
         buildingsList.set(i,x);
+    }
+    public static void activateUpgrade(Upgrade u){
+        upgradesList.remove(upgradesList.indexOf(u));
+        activatedUpgradesList.add(u);
     }
     private static List initializeBuildings() {
         List<Building> result = new ArrayList<>();
@@ -99,10 +70,7 @@ public class Game {
                     break;
                 }
             }
-
-
         }
-
         return result;
     }
     public static BigDecimal getBalance() {
@@ -219,5 +187,8 @@ public class Game {
         Balance=Balance.add(a);
         EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
     }
-
+    public static void subtractFromBalance(BigDecimal a){
+        Balance=Balance.subtract(a);
+        EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
+    }
 }
