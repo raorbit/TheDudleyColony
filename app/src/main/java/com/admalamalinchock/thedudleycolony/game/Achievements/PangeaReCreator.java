@@ -6,7 +6,7 @@ package com.admalamalinchock.thedudleycolony.game.Achievements;
 public class PangeaReCreator extends Achievements
 {
     public PangeaReCreator() {
-        super("Pangea Re-Creator", " Own 60 continents.");
+        super("Pangea Re-Creator", " Own 60 continents.",6,60);
     }
 
 }

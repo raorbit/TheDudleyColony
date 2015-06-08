@@ -9,6 +9,6 @@ public class Rifle extends Upgrade
 {
     public Rifle()
     {
-        super(new BigDecimal(425), "Rifle", "A large gun specializing in long range engages. Multiplies Dudley gain by 4.",new BigDecimal("4"));
+        super(new BigDecimal(20000), "Rifle", "A large gun specializing in long range engages. Multiplies Dudley gain by 4.",new BigDecimal("4"));
     }
 }

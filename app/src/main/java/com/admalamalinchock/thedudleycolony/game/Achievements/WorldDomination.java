@@ -7,7 +7,7 @@ public class WorldDomination extends Achievements
 {
     public WorldDomination()
     {
-        super("World Domination","Own 60 worlds.");
+        super("World Domination","Own 60 worlds.",7,60);
     }
 
 

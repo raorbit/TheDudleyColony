@@ -7,6 +7,6 @@ public class BaneEconomicsII extends Achievements
 {
     public BaneEconomicsII()
     {
-        super("Bane Economics II","Own 150 cities.");
+        super("Bane Economics II","Own 150 cities.", 3, 150);
     }
 }

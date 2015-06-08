@@ -9,6 +9,6 @@ public class Helmet extends Upgrade
 {
     public Helmet()
     {
-        super(new BigDecimal(180), "Helmet", "A cover to perfect deaths, from falling construction while Dudleys are working. Multiplies Dudley gain by 2.5.",new BigDecimal("2.5"));
+        super(new BigDecimal(1250), "Helmet", "A cover to perfect deaths, from falling construction while Dudleys are working. Multiplies Dudley gain by 2.5.",new BigDecimal("2.5"));
     }
 }

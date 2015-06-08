@@ -9,6 +9,6 @@ public class Shoes extends Upgrade
 {
     public Shoes()
     {
-        super(new BigDecimal(4), "Shoes", "Simple leather to wrap around the feet to reduce foot injuries at work. Multiplies Dudley gain by 2.",new BigDecimal("2"));
+        super(new BigDecimal(140), "Shoes", "Simple leather to wrap around the feet to reduce foot injuries at work. Multiplies Dudley gain by 2.",new BigDecimal("2"));
     }
 }

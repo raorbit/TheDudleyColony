@@ -7,6 +7,6 @@ public class SgtMayor extends Achievements
 {
     public SgtMayor()
     {
-        super("Sargent Mayor","Own 40 towns.");
+        super("Sargent Mayor","Own 60 towns.", 2, 60);
     }
 }

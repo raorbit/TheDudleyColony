@@ -11,7 +11,7 @@ public class State extends Building
 
     public State()
     {
-        super(new BigDecimal(1),new BigDecimal("1.1"),new BigDecimal("5"),"State",2,4);
+        super(new BigDecimal(8000),new BigDecimal("1.1"),new BigDecimal("5"),"State",2,4);
     }
 
 }

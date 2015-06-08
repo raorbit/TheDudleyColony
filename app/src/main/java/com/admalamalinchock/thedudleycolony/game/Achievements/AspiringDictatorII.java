@@ -7,6 +7,6 @@ public class AspiringDictatorII extends Achievements
 {
     public AspiringDictatorII()
     {
-        super("Aspiring Dictator II","Own 150 states.");
+        super("Aspiring Dictator II","Own 150 states.", 4, 150);
     }
 }

@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Raorbit\.gradle\caches\modules-2\files-2.1\de.greenrobot\eventbus\2.4.0\ddd166d01b3158d1c00576d29f7ed15c030df719\eventbus-2.4.0.jar"
+        jar="/Users/HoldenMalinchock/.gradle/caches/modules-2/files-2.1/de.greenrobot/eventbus/2.4.0/ddd166d01b3158d1c00576d29f7ed15c030df719/eventbus-2.4.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="ddd166d01b3158d1c00576d29f7ed15c030df719">
-        <dex dex="C:\Users\Raorbit\Android\TheDudleyColony\app\build\intermediates\pre-dexed\debug\eventbus-2.4.0-782b415a50aa426143f89ef8dff53197f2fa3119.jar" />
+        <dex dex="/Users/HoldenMalinchock/Documents/Code/TheDudleyColony/app/build/intermediates/pre-dexed/debug/eventbus-2.4.0-480c07ab7885021c2ff8720e829d760ee5611bd0.jar" />
     </item>
 
 </items>

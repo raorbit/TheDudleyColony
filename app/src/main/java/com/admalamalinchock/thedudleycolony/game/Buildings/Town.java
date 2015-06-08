@@ -9,6 +9,6 @@ public class Town extends Building {
     public final int ID = 2;
 
     public Town() {
-        super(new BigDecimal(1),new BigDecimal("1.1"),new BigDecimal("5"),"Town",2,2);
+        super(new BigDecimal(1000),new BigDecimal("1.1"),new BigDecimal("5"),"Town",2,2);
     }
 }

@@ -7,7 +7,7 @@ public class ShantyTown extends Achievements
 {
     public ShantyTown()
     {
-        super("Shanty Town","Own 100 shacks.");
+        super("Shanty Town","Own 60 shacks.", 1, 60);
     }
 
 

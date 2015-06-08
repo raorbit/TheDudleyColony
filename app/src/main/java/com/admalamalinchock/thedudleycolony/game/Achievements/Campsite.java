@@ -9,6 +9,6 @@ public class Campsite extends Achievements
 
     public Campsite()
     {
-        super("Campsite","Own 50 tents.");
+        super("Campsite","Own 60 tents.", 0, 60);
     }
 }

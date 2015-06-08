@@ -7,6 +7,6 @@ public class FinalFrontierII extends Achievements
 {
     public FinalFrontierII()
     {
-        super("Final Frontier II","Own 150 SolarSystems.");
+        super("Final Frontier II","Own 150 SolarSystems.",8,150);
     }
 }

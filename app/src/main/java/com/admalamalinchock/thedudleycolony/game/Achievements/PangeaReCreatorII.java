@@ -7,6 +7,6 @@ public class PangeaReCreatorII extends Achievements
 {
     public PangeaReCreatorII()
     {
-        super("Pangea Re-Creator II","Own 150 continents.");
+        super("Pangea Re-Creator II","Own 150 continents.",6,150);
     }
 }
