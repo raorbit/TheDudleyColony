@@ -57,11 +57,17 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
     }
+    public void onEvent(AchievementEvent event){
+        adapter.af.aa.activateAchievement(event.pos);
+    }
+
+
     public class SamplePagerAdapter extends FragmentPagerAdapter {
         private final String[] TITLES = {"Building", "Upgrade", "Achievements", "Stats", "Prestige", "ITEM SIX", "ITEM SEVEN", "ITEM EIGHT",
                 "ITEM NINE", "ITEM TEN", "ITEM ELEVEN"};
         private final ArrayList<String> mTitles;
         public BuildingsFragment bf;
+        public AchievementsFragment af;
         public SamplePagerAdapter(FragmentManager fm, int numberOfTabs) {
             super(fm);
             mTitles = new ArrayList<>();
@@ -89,7 +95,8 @@ public class MainActivity extends AppCompatActivity  {
                     return UpgradesFragment.newInstance();
                 }
                 case 2:{
-                    break;
+                    af= AchievementsFragment.newInstance();
+                    return af;
                 }
                 case 3:{
                     return StatsFragment.newInstance();

@@ -5,7 +5,6 @@ package com.admalamalinchock.thedudleycolony.game.Achievements;
  */
 import java.math.BigDecimal;
 import com.admalamalinchock.thedudleycolony.game.Game;
-import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
 public class Achievements
 {
     protected String name = "";
@@ -13,39 +12,32 @@ public class Achievements
     protected Boolean isActive = false;
     protected int BuildingsID,numofBuildings;
     private BigDecimal rate = new BigDecimal("2");
-
-
-
-
     public Achievements(String title, String definition, int buildingID, int numBuilding)
     {
         name = title;
         description = definition;
         BuildingsID = buildingID;
         numofBuildings = numBuilding;
-
     }
     public boolean isActive()
     {
         if(isActive == true)
         return true;
         else
-            if(Game.buildingsList.get(BuildingsID).getNumOfBuildings().compareTo(new BigDecimal(""+numofBuildings))<=0)
+            if(Game.buildingsList.get(BuildingsID).getNumOfBuildings().compareTo(new BigDecimal(""+numofBuildings))>=0)
             {
                 isActive = true;
             }
         return isActive;
-
     }
     public BigDecimal getRate()
     {
         return rate;
     }
-
-
-
-
-
-
-
+    public String getName(){
+        return name;
+    }
+    public String getDescription(){
+        return description;
+    }
 }

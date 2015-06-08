@@ -1,5 +1,4 @@
 package com.admalamalinchock.thedudleycolony;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,19 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.admalamalinchock.thedudleycolony.game.Buildings.*;
-import com.admalamalinchock.thedudleycolony.game.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import de.greenrobot.event.EventBus;
-public class BuildingsFragment extends Fragment  {
-    BuildingAdapter ba;
-    public static BuildingsFragment newInstance() {
-        BuildingsFragment fragment = new BuildingsFragment();
+public class AchievementsFragment extends Fragment  {
+    public AchievementsAdapter aa;
+    public static AchievementsFragment newInstance() {
+        AchievementsFragment fragment = new AchievementsFragment();
         return fragment;
     }
-    public BuildingsFragment() {
+    public AchievementsFragment() {
         // Required empty public constructor
     }
     @Override
@@ -29,15 +22,14 @@ public class BuildingsFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_buildings, container, false);
-        RecyclerView recList = (RecyclerView) v.findViewById(R.id.buildingList);
+        View v= inflater.inflate(R.layout.fragment_achievements, container, false);
+        RecyclerView recList = (RecyclerView) v.findViewById(R.id.achievementList);
         recList.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        ba = new BuildingAdapter();
-        recList.setAdapter(ba);
-        recList.hasFixedSize();
+        aa = new AchievementsAdapter();
+        recList.setAdapter(aa);
         return v;
     }
 }

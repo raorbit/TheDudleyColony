@@ -1,9 +1,7 @@
 package com.admalamalinchock.thedudleycolony.game.Buildings;
-
 /**
  * Created by HoldenMalinchock on 5/18/15.
  */
-import com.admalamalinchock.thedudleycolony.game.Calculations;
 import com.admalamalinchock.thedudleycolony.game.Game;
 import java.math.BigDecimal;
 public abstract class Building
@@ -59,7 +57,7 @@ public abstract class Building
         return payout.multiply(getMultiplier());
     }
     public BigDecimal getMultiplier(){
-        return Calculations.factorUpgrades().multiply(numOfBuildings);
+        return Game.factorUpgrades().multiply(numOfBuildings);
     }
     public void buy()
     {
