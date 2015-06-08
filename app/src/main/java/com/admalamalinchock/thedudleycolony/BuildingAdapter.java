@@ -24,7 +24,6 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
     public void onBindViewHolder(final BuildingViewHolder viewHolder, int position) {
         viewHolder.bind(Game.buildingsList.get(position));
         final int pn = position;
-        viewHolder.buy(Game.getBuilding(pn));
         viewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
