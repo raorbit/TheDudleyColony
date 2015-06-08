@@ -2,11 +2,10 @@ package com.admalamalinchock.thedudleycolony;
 /**
  * Created by Raorbit on 5/29/2015.
  */
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,9 @@ import android.widget.Button;
 import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
 import com.admalamalinchock.thedudleycolony.game.Game;
 import com.admalamalinchock.thedudleycolony.uicomponents.TextRoundCornerProgressBar;
+
+import de.greenrobot.event.EventBus;
+
 public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.BuildingViewHolder> {
     @Override
     public int getItemCount() {
@@ -27,7 +29,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         viewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Game.getBuilding(pn).isActive()==false) {
+                if (Game.getBuilding(pn).isActive() == false && Game.getBuilding(pn).getPrice().compareTo(Game.getBalance()) <= 0) {
                     viewHolder.run(Game.getBuilding(pn).ID);
                     Game.getBuilding(pn).setActive();
                 }
@@ -42,6 +44,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.building_layout, viewGroup, false);
         return new BuildingViewHolder(itemView);
     }
+
     public class BuildingViewHolder extends RecyclerView.ViewHolder {
         protected TextRoundCornerProgressBar progress1;
         protected Button buyButton;
@@ -50,7 +53,6 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         public BuildingViewHolder(View v) {
             super(v);
             setIsRecyclable(false);
-
         }
         public void buy(Building a) {
             b = a;
@@ -59,8 +61,8 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         }
 
         public void update() {
-            progress1.setTextProgress(b.getPayout().toString());
-            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + b.getPrice().toString());
+            progress1.setTextProgress(b.getPayout().stripTrailingZeros().toEngineeringString());
+            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().stripTrailingZeros().toString() + "\nBuy:" + b.getPrice().stripTrailingZeros().toString());
         }
         public void bind(Building b) {
             this.b = b;
@@ -87,6 +89,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
                         mHandler.post(new Runnable() {
                             public void run() {
                                 progress1.setProgress(Game.getBuilding(ii).mProgressStatus);
+                                progress1.setTextProgress(b.getPayout().stripTrailingZeros().toEngineeringString());
                             }
                         });
                         Game.getBuilding(ii).mProgressStatus++;
@@ -122,6 +125,5 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
                 }
             }).start();
         }
-
     }
 }

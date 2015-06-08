@@ -185,10 +185,12 @@ public class Game {
     }
     public static void addToBalance(BigDecimal a){
         Balance=Balance.add(a);
+        Balance= Balance.setScale(4,BigDecimal.ROUND_UP).stripTrailingZeros();
         EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
     }
     public static void subtractFromBalance(BigDecimal a){
         Balance=Balance.subtract(a);
+        Balance= Balance.setScale(4,BigDecimal.ROUND_UP).stripTrailingZeros();
         EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
     }
 }

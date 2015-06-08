@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import de.greenrobot.event.EventBus;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity  {
     MaterialTabs mMaterialTabs;
     @InjectView(R.id.view_pager)
     ViewPager mViewPager;
+    private SamplePagerAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity  {
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
         int numberOfTabs = 5;
-        SamplePagerAdapter adapter = new SamplePagerAdapter(getSupportFragmentManager(), numberOfTabs);
+        adapter = new SamplePagerAdapter(getSupportFragmentManager(), numberOfTabs);
         mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(5);
         mMaterialTabs.setViewPager(mViewPager); final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
@@ -58,12 +61,14 @@ public class MainActivity extends AppCompatActivity  {
         private final String[] TITLES = {"Building", "Upgrade", "Achievements", "Stats", "Prestige", "ITEM SIX", "ITEM SEVEN", "ITEM EIGHT",
                 "ITEM NINE", "ITEM TEN", "ITEM ELEVEN"};
         private final ArrayList<String> mTitles;
+        public BuildingsFragment bf;
         public SamplePagerAdapter(FragmentManager fm, int numberOfTabs) {
             super(fm);
             mTitles = new ArrayList<>();
             for (int i = 0; i < numberOfTabs; i++) {
                 mTitles.add(TITLES[i]);
             }
+
         }
         @Override
         public CharSequence getPageTitle(int position) {
@@ -75,9 +80,10 @@ public class MainActivity extends AppCompatActivity  {
         }
         @Override
         public Fragment getItem(int position) {
-                switch (position){
+            switch (position){
                 case 0:{
-                    return BuildingsFragment.newInstance();
+                    bf=BuildingsFragment.newInstance();
+                    return bf;
                 }
                 case 1:{
                     return UpgradesFragment.newInstance();
@@ -94,5 +100,8 @@ public class MainActivity extends AppCompatActivity  {
             }
             return SampleFragment.newInstance(position);
         }
-    }
-}
+        }
+
+
+            }
+
