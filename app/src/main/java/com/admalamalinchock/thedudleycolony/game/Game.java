@@ -1,4 +1,6 @@
 package com.admalamalinchock.thedudleycolony.game;
+import android.util.Log;
+
 import java.math.BigDecimal;
 import java.util.*;
 import com.admalamalinchock.thedudleycolony.*;
@@ -303,9 +305,11 @@ public class Game {
         int i=0;
         for(Achievements x:achievementsList){
             if(x.isActive()){
+                Log.d("Achievement is active:",x.getName());
                 i=activateAchievement(x);
+                EventBus.getDefault().post(new AchievementEvent(i));
+                break;
             }
         }
-        EventBus.getDefault().post(new AchievementEvent(i));
     }
 }

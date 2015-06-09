@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity  {
     @InjectView(R.id.view_pager)
     ViewPager mViewPager;
     private SamplePagerAdapter adapter;
+    //called when the activity is created. Similiar to a constructor.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +39,19 @@ public class MainActivity extends AppCompatActivity  {
         mMaterialTabs.setViewPager(mViewPager); final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
         mViewPager.setPageMargin(pageMargin);
     }
+    //called when the activity is started to tell the eventbus this wants to be forwarded all posted events.
     @Override
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register(this);
     }
+    //called before the activity is destroyed by android to tell the eventbus that it no longer needs to be notified of events.
     @Override
     public void onStop() {
         EventBus.getDefault().unregister(this);
         super.onStop();
     }
+    //Called when balance increases or decreases to update the activity title
     public void onEvent(BalanceEvent event){
         final String f=event.message;
         runOnUiThread(new Runnable() {
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
     }
+    //called when an achievement becomes active to remove it from view in the achievements tab
     public void onEvent(AchievementEvent event){
         adapter.af.aa.activateAchievement(event.pos);
     }

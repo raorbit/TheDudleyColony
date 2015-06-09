@@ -57,6 +57,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         public void buy(Building a) {
             b = a;
             b.buy();
+            Game.checkAchievements();
             update();
 
         }
@@ -97,7 +98,6 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
                         if (Game.getBuilding(ii).mProgressStatus == 100) {
                             Game.getBuilding(ii).mProgressStatus = 0;
                             Game.getBuilding(ii).Payout();
-                            //Game.checkAchievements();
                         }
                         try {
                             Thread.sleep(25);

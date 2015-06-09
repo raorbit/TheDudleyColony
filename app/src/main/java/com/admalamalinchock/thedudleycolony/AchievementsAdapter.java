@@ -11,6 +11,7 @@ import com.admalamalinchock.thedudleycolony.game.Upgrades.Upgrade;
  * Created by Rahul on 6/8/2015.
  */
 public class AchievementsAdapter extends RecyclerView.Adapter<AchievementsAdapter.AchievementViewHolder>{
+    //Required constructor. Leaving it empty so that we can store all data in the Game class
     public AchievementsAdapter() {
     }
     @Override
@@ -19,13 +20,13 @@ public class AchievementsAdapter extends RecyclerView.Adapter<AchievementsAdapte
     }
     @Override
     public void onBindViewHolder(final AchievementViewHolder viewHolder, final int position) {
-        final Achievements x=Game.getAchievements(position);
-        if(!x.isActive()) {
-            viewHolder.bind(x);
-        }
+       // notifyDataSetChanged();
+         Achievements x=Game.getAchievements(position);
+         viewHolder.bind(x);
+
     }
     public void activateAchievement(int i){
-            notifyItemRemoved(i);
+        notifyItemRemoved(i);
     }
     @Override
     public AchievementViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -33,13 +34,11 @@ public class AchievementsAdapter extends RecyclerView.Adapter<AchievementsAdapte
         return new AchievementViewHolder(itemView);
     }
     public class AchievementViewHolder extends RecyclerView.ViewHolder {
-        private Achievements a;
         private TextView aTitle,aDescription;
         public AchievementViewHolder(View v) {
             super(v);
         }
-        public void bind(Achievements u) {
-            this.a=u;
+        public void bind(Achievements a) {
             aTitle=(TextView) itemView.findViewById(R.id.achievement_title);
             aDescription=(TextView) itemView.findViewById(R.id.achievement_description);
             aTitle.setText(a.getName());
