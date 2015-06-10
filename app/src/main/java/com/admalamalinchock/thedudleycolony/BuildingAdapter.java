@@ -5,55 +5,60 @@ package com.admalamalinchock.thedudleycolony;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import com.admalamalinchock.thedudleycolony.game.Buildings.Building;
 import com.admalamalinchock.thedudleycolony.game.Game;
 import com.admalamalinchock.thedudleycolony.uicomponents.TextRoundCornerProgressBar;
-
-import de.greenrobot.event.EventBus;
-
 public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.BuildingViewHolder> {
+    //required method that tells RecyclerView how entries it should create
     @Override
     public int getItemCount() {
         return Game.buildingsList.size();
     }
+    //called when a Building View is loaded into memory
     @Override
     public void onBindViewHolder(final BuildingViewHolder viewHolder, int position) {
         viewHolder.bind(Game.buildingsList.get(position));
         final int pn = position;
+        //sets an on click listener and details what happens when it is clicked
         viewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //checking if the thread that increments balanace for a specific building needs to be created and if so starts it
                 if (Game.getBuilding(pn).isActive() == false && Game.getBuilding(pn).getPrice().compareTo(Game.getBalance()) <= 0) {
                     viewHolder.run(Game.getBuilding(pn).ID);
                     Game.getBuilding(pn).setActive();
                 }
+                //buys a Building only if Building price is less than or equal to Balance
                 viewHolder.buy(Game.getBuilding(pn));
 
             }
         });
         viewHolder.progress1.setProgress(Game.buildingsList.get(position).mProgressStatus);
     }
+    //Called by RecyclerView to create a ViewHolder on creation of the BuildingsFragment to begin caching data
     @Override
     public BuildingViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.building_layout, viewGroup, false);
         return new BuildingViewHolder(itemView);
     }
-
+    //ViewHolder used to cache information about buildings.
     public class BuildingViewHolder extends RecyclerView.ViewHolder {
+        //instance data
         protected TextRoundCornerProgressBar progress1;
         protected Button buyButton;
         private Handler mHandler = new Handler();
         private Building b;
+        //required constructor
         public BuildingViewHolder(View v) {
             super(v);
+            //tells RecyclerView not to recycle the view when offscreen
             setIsRecyclable(false);
         }
+        //called when the buy button is clicked
         public void buy(Building a) {
             b = a;
             b.buy();
@@ -61,11 +66,12 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
             update();
 
         }
-
+        //called to update the screen after values have changed
         public void update() {
             progress1.setTextProgress(b.getPayout().stripTrailingZeros().toEngineeringString());
             buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().stripTrailingZeros().toString() + "\nBuy:" + b.getPrice().stripTrailingZeros().toString());
         }
+        //call when a View is created in the Building RecyclerView
         public void bind(Building b) {
             this.b = b;
             buyButton = (Button) itemView.findViewById(R.id.buy_button);
@@ -76,13 +82,13 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
             progress1.setProgress(0);
             progress1.setTextColor(Color.parseColor("#FFFFFF"));
             progress1.setTextSize(20);
-            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + b.getPrice().toString());
-            progress1.setTextProgress(b.getPayout().toString());
+            update();
             if(b.isActive()){
                  progress1.setProgress(b.mProgressStatus);
                 updateProgress();
             }
         }
+        //Thread that increments balance
         public void run(int i) {
             final int ii=i;
             new Thread(new Runnable() {
@@ -108,6 +114,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
                 }
             }).start();
         }
+        //thread that animates the onscreen progress bar
         public void updateProgress(){
             new Thread(new Runnable() {
                 public void run() {

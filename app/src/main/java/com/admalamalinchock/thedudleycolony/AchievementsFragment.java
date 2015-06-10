@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 public class AchievementsFragment extends Fragment  {
     public AchievementsAdapter aa;
+    //Called by the ViewPager that manages Fragments in tabs
     public static AchievementsFragment newInstance() {
         AchievementsFragment fragment = new AchievementsFragment();
         return fragment;
@@ -15,10 +16,12 @@ public class AchievementsFragment extends Fragment  {
     public AchievementsFragment() {
         // Required empty public constructor
     }
+    //called on creation of fragment. Simply calls required super classes constructor
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+    //called on the creation of the View
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
