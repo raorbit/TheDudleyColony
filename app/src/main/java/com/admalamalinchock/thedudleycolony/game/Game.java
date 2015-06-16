@@ -320,21 +320,22 @@ public class Game {
     public static void addToBalance(BigDecimal a){
         //increments the Balance object
         Balance=Balance.add(a);
+        Log.d("Balance",format(Balance,3));
         //rounds the Balance object
-        Balance= Balance.setScale(4,BigDecimal.ROUND_UP).stripTrailingZeros();
+        //Balance= Balance.setScale(4,BigDecimal.ROUND_UP).stripTrailingZeros();
         //Posts a BalanceEvent to the default EventBus
         //The MainActivity is listening for these events and upon posting this changes the MainActivity's Title
-        EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
+        EventBus.getDefault().post(new BalanceEvent("$"+format(Balance,3)));
     }
     //Called when the Balance decreases
     public static void subtractFromBalance(BigDecimal a){
         //subtracts from the Balance object
         Balance=Balance.subtract(a);
         //rounds the Balance object
-        Balance= Balance.setScale(4,BigDecimal.ROUND_UP).stripTrailingZeros();
+       // Balance= Balance.setScale(4,BigDecimal.ROUND_UP).stripTrailingZeros();
         //Posts a BalanceEvent to the default EventBus
         //The MainActivity is listening for these events and upon posting this changes the MainActivity's Title
-        EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
+        EventBus.getDefault().post(new BalanceEvent("$"+format(Balance,3)));
     }
     //returns the multiplier
     public static BigDecimal getMultiplier() {
@@ -356,5 +357,12 @@ public class Game {
                 break;
             }
         }
+    }
+    //Method to format a BigDecimal into scientific notation and return it as a String
+    public static String format(BigDecimal a,int numPlaces){
+        Formatter fmt = new Formatter();
+        // Format to 2 decimal places in a 16 character field.
+        fmt.format("%1."+numPlaces+"E",a);
+        return fmt.toString();
     }
 }

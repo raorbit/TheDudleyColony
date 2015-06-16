@@ -60,7 +60,7 @@ public class UpgradeAdapter extends RecyclerView.Adapter<UpgradeAdapter.UpgradeV
             uDescription=(TextView) itemView.findViewById(R.id.upgrade_description);
             uTitle.setText(u.getName());
             uDescription.setText(u.getDescription());
-            buyButton.setText("Buy:\n"+u.getPrice().toString());
+            buyButton.setText("Buy:\n"+Game.format(u.getPrice(),3));
         }
     }
 }

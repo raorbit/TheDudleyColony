@@ -68,8 +68,8 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
         }
         //called to update the screen after values have changed
         public void update() {
-            progress1.setTextProgress(b.getPayout().stripTrailingZeros().toEngineeringString());
-            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().stripTrailingZeros().toString() + "\nBuy:" + b.getPrice().stripTrailingZeros().toString());
+            progress1.setTextProgress(Game.format(b.getPayout(),4));
+            buyButton.setText(b.getName() + ":" + b.getNumOfBuildings().toString() + "\nBuy:" + Game.format(b.getPrice(),2));
         }
         //call when a View is created in the Building RecyclerView
         public void bind(Building b) {
@@ -97,7 +97,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.Buildi
                         mHandler.post(new Runnable() {
                             public void run() {
                                 progress1.setProgress(Game.getBuilding(ii).mProgressStatus);
-                                progress1.setTextProgress(b.getPayout().stripTrailingZeros().toEngineeringString());
+                                progress1.setTextProgress(Game.format(b.getPayout(),4));
                             }
                         });
                         Game.getBuilding(ii).mProgressStatus++;

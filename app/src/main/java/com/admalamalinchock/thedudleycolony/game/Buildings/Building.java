@@ -7,21 +7,21 @@ import java.math.BigDecimal;        //importing the BigDecimal class so we can h
 
 public abstract class Building
 {
-    protected BigDecimal price;
-    protected BigDecimal rate;
-    protected BigDecimal payout;        //what the building produces in a given amount of time
-    protected BigDecimal numOfBuildings;
-    private String nameofBuilding = "";
+    private BigDecimal price;
+    private BigDecimal rate;
+    private BigDecimal payout;        //what the building produces in a given amount of time
+    private BigDecimal numOfBuildings;
+    private String nameOfBuilding = "";
     public double timeToPayout,time;
     public int mProgressStatus;
     private boolean isActive;
     public int ID;
     public Building(){}
-    public Building(BigDecimal enteredprice, BigDecimal r,BigDecimal payout, String enteredname,double time,int i)  //constructor with the price payout name and the time till payout and the ID number
+    public Building(BigDecimal enteredPrice, BigDecimal r,BigDecimal payout, String enteredName,double time,int i)  //constructor with the price payout name and the time till payout and the ID number
     {
-        price = enteredprice;
+        price = enteredPrice;
         rate=r;
-        nameofBuilding = enteredname;
+        nameOfBuilding = enteredName;
         numOfBuildings=new BigDecimal("0");
         this.payout=payout;
         this.timeToPayout=time*100;
@@ -35,18 +35,12 @@ public abstract class Building
     }   //get the number of buildings that they own
     public BigDecimal getPrice()    //get the price of the next building
     {
-      setScale();
       return price;
     }
     public String getName()
     {
-        return nameofBuilding;
+        return nameOfBuilding;
     }   //returns the name of the building
-    public BigDecimal changePrice(BigDecimal newVal)        //change the price of a building
-    {
-        price = newVal;
-        return price;
-    }
     public void  incrementPrice() {
         price=price.multiply(rate);
     }   //the method called whenever you buy a building, it increases at a rate specific to each building
@@ -69,15 +63,11 @@ public abstract class Building
             incrementPrice();
         }
      }
-    //Set BigDecimal rounding range
-     public void setScale(){
-       payout= payout.setScale(2,BigDecimal.ROUND_UP).stripTrailingZeros();
-       numOfBuildings=   numOfBuildings.setScale(2,BigDecimal.ROUND_UP).stripTrailingZeros();
-        price= price.setScale(2,BigDecimal.ROUND_UP).stripTrailingZeros();
-    }
+    //method to check if there are achievements or upgrades active
     public boolean isActive(){
         return isActive;
-    }   //method to check if there are achievements or upgrades active
+    }
+    //sets isActive to true
     public void setActive(){
         isActive=true;
     }
