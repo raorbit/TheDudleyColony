@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity  {
     @InjectView(R.id.view_pager)
     ViewPager mViewPager;
     private SamplePagerAdapter adapter;
-    //called when the activity is created. Similiar to a constructor.
+    //called when the activity is created. Essentially our Main method .
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

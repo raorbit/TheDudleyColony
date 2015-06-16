@@ -11,7 +11,7 @@ public class Country extends Building
 
     public Country()
     {
-        super(new BigDecimal(20000),new BigDecimal("1.1"),new BigDecimal("5"),"Country",2,5);       //using the super constructor
+        super(new BigDecimal(20000),new BigDecimal("1.1"),new BigDecimal("1000"),"Country",2,5);       //using the super constructor
     }
 
 }

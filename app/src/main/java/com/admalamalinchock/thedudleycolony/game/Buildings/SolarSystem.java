@@ -11,6 +11,6 @@ public class SolarSystem extends Building
 
     public SolarSystem()
     {
-        super(new BigDecimal(75000),new BigDecimal("1.1"),new BigDecimal("5"),"SolarSystem",2,8);   //using the super constructor
+        super(new BigDecimal(75000),new BigDecimal("1.1"),new BigDecimal("999999"),"SolarSystem",2,8);   //using the super constructor
     }
 }

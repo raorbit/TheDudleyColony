@@ -10,7 +10,7 @@ public class World extends Building
     public final int ID = 7;
 
     public World() {
-        super(new BigDecimal(50000),new BigDecimal("1.1"),new BigDecimal("5"),"World",2,7); //using the super constructor
+        super(new BigDecimal(50000),new BigDecimal("1.1"),new BigDecimal("98765"),"World",2,7); //using the super constructor
 
     }
 }
