@@ -58,8 +58,9 @@ public abstract class Building
         return payout.multiply(getMultiplier());
     }       //get the payout
     public BigDecimal getMultiplier(){
-        return Game.factorUpgrades().multiply(numOfBuildings);
+        return Game.getMultiplier().multiply(numOfBuildings);
     }
+    //Called to check if another building can be bought
     public void buy()
     {
         if(getPrice().compareTo(Game.getBalance())<=0) {
@@ -68,6 +69,7 @@ public abstract class Building
             incrementPrice();
         }
      }
+    //Set BigDecimal rounding range
      public void setScale(){
        payout= payout.setScale(2,BigDecimal.ROUND_UP).stripTrailingZeros();
        numOfBuildings=   numOfBuildings.setScale(2,BigDecimal.ROUND_UP).stripTrailingZeros();

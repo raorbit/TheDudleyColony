@@ -16,21 +16,21 @@ public class AchievementsFragment extends Fragment  {
     public AchievementsFragment() {
         // Required empty public constructor
     }
-    //called on creation of fragment. Simply calls required super classes constructor
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-    //called on the creation of the View
+    //called on the creation of the View object
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_achievements, container, false);
+        //Creates a new RecyclerView from the XML file  in /res/layout/fragment_achievements.xml
         RecyclerView recList = (RecyclerView) v.findViewById(R.id.achievementList);
+        //tells RecyclerView the list is dynamic
         recList.setHasFixedSize(false);
+        //Sets a linearlayout for the list
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        //tells manager the layout is vertical and sets the manager to the RecyclerView
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
+        //creates and sets adapter for recycler list
         aa = new AchievementsAdapter();
         recList.setAdapter(aa);
         return v;

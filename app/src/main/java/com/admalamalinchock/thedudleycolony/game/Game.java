@@ -1,6 +1,5 @@
 package com.admalamalinchock.thedudleycolony.game;
 import android.util.Log;
-
 import java.math.BigDecimal;
 import java.util.*;
 import com.admalamalinchock.thedudleycolony.*;
@@ -29,36 +28,61 @@ import de.greenrobot.event.EventBus;
 /**
  * Created by Rahul Admala on 5/29/15.
  */
+//The Game class is used to store all data and used to relay data between various fragments and the MainActivity
+//This class is static because only one instance of the data is needed and eliminates the need to keep references of the Game object in each class that needs to access it
+//This keeps data consistent between the many different classes and threads that access it
 public class Game {
+    //a List that keeps track of all of the Buildings
     public static List<Building> buildingsList;
+    //a List that keeps track of all of Upgrades that are not activated and are to be displayed in the UpgradesFragment
     public static List<Upgrade> upgradesList;
+    //a List that keeps track of all of Upgrades that are activated and should be used to calculate the multiplier
     public static List<Upgrade> activatedUpgradesList;
+    //a List that keeps track of all of Achievements that are not activated and are to be displayed in the AchievementsFragment
     public static List<Achievements> achievementsList;
+    //a List that keeps track of all of Achievements that are activated and should be used to calculate the multiplier
     public static List<Achievements> activatedAchievementsList;
+    //The Balance BigDecimal keeps track of the the current balance and is used to update the MainActivity's title
+    //The Multiplier BigDecimal is multiplied by a Building object's base payout inorder to calculate the true payout
     private static BigDecimal Balance,multiplier;
+    //called to setup the Game class initially
     public static void setup(){
         buildingsList=initializeBuildings();
         upgradesList=initializeUpgrades();
         achievementsList=initializeAchievements();
         activatedUpgradesList=new ArrayList<>();
         activatedAchievementsList=new ArrayList<>();
+        //Initializes variable with default value
         Balance=new BigDecimal("1");
         multiplier= new BigDecimal("1");
     }
+    //returns a building from the buildingsList
     public static Building getBuilding(int i){
         return buildingsList.get(i);
     }
+    //returns an achievement from the achievementsList
     public static Achievements getAchievements(int i){
         return achievementsList.get(i);
     }
+    //returns the Balance BigDecimal
     public static BigDecimal getBalance() {
         return Balance;
     }
+    /*
+    Called to activate an individual Upgrade
+    This is done by removing the upgrade from the upgradesList then adding it to the activatedUpgradesList.
+    The multiplier is then increased by the Upgrade's multiplier
+    */
     public static void activateUpgrade(Upgrade u){
         upgradesList.remove(upgradesList.indexOf(u));
         activatedUpgradesList.add(u);
         multiplier=multiplier.multiply(u.getMultiplier());
     }
+    /*
+    Called to activate an individual Achievement
+    This is done by removing the upgrade from the achievementsList then adding it to the activatedAchievementsList.
+    The multiplier is then increased by the Achievement's multiplier
+    */
     public static int activateAchievement(Achievements a){
         int i=achievementsList.indexOf(a);
         achievementsList.remove(i);
@@ -66,6 +90,7 @@ public class Game {
         multiplier = multiplier.multiply(a.getRate());
         return i;
     }
+    //initializes the buildingsList ArrayList by creating one instance of each type of building and ands it to the list
     private static List initializeBuildings() {
         List<Building> result = new ArrayList<>();
         for (int i=0; i <= 8; i++) {
@@ -110,6 +135,7 @@ public class Game {
         }
         return result;
     }
+    //initializes the upgradesList ArrayList by creating one instance of each type of upgrade and ands it to the list
     private static List initializeUpgrades() {
         List<Upgrade> result = new ArrayList<>();
         for (int i=0; i <= 24; i++) {
@@ -210,6 +236,7 @@ public class Game {
 
         return result;
     }
+    //initializes the achievementsList ArrayList by creating one instance of each type of achievement and ands it to the list
     private static List initializeAchievements(){
         List<Achievements> result = new ArrayList<>();
         for (int i=0; i <= 17; i++) {
@@ -284,29 +311,47 @@ public class Game {
         }
         return result;
     }
+    //returns an Upgrade
     public static Upgrade getUpgrade(int i){
 
         return upgradesList.get(i);
     }
+    //Called when the Balance increases
     public static void addToBalance(BigDecimal a){
+        //increments the Balance object
         Balance=Balance.add(a);
+        //rounds the Balance object
         Balance= Balance.setScale(4,BigDecimal.ROUND_UP).stripTrailingZeros();
+        //Posts a BalanceEvent to the default EventBus
+        //The MainActivity is listening for these events and upon posting this changes the MainActivity's Title
         EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
     }
+    //Called when the Balance decreases
     public static void subtractFromBalance(BigDecimal a){
+        //subtracts from the Balance object
         Balance=Balance.subtract(a);
+        //rounds the Balance object
         Balance= Balance.setScale(4,BigDecimal.ROUND_UP).stripTrailingZeros();
+        //Posts a BalanceEvent to the default EventBus
+        //The MainActivity is listening for these events and upon posting this changes the MainActivity's Title
         EventBus.getDefault().post(new BalanceEvent("$"+Balance.toString()));
     }
-    public static BigDecimal factorUpgrades() {
+    //returns the multiplier
+    public static BigDecimal getMultiplier() {
         return multiplier;
     }
+    //Checks whether an achievement should activate
+    //Called when a building is bought
     public static void checkAchievements(){
         int i=0;
         for(Achievements x:achievementsList){
             if(x.isActive()){
+                //Prints to Android Logcat like the System.out.println(); would
                 Log.d("Achievement is active:",x.getName());
+                //activates an achievement
                 i=activateAchievement(x);
+                //Posts a AchievementEvent to the default EventBus
+                //The MainActivity is listening for these events and upon posting this removes the achievement of ID i from view in AchievementsFragment
                 EventBus.getDefault().post(new AchievementEvent(i));
                 break;
             }

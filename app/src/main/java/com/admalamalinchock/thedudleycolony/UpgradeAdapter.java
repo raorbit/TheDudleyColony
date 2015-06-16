@@ -30,6 +30,7 @@ public class UpgradeAdapter extends RecyclerView.Adapter<UpgradeAdapter.UpgradeV
             }
         });
     }
+    //Called when an upgrade is bought inorder to activate it
     public void activateUpgrade(Upgrade u,UpgradeViewHolder uvh){
         if(u.buy()){
             Game.activateUpgrade(u);

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity  {
         setSupportActionBar(mToolbar);
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
-        int numberOfTabs = 5;
+        int numberOfTabs = 3;
         adapter = new SamplePagerAdapter(getSupportFragmentManager(), numberOfTabs);
         mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(5);
@@ -65,11 +65,9 @@ public class MainActivity extends AppCompatActivity  {
     public void onEvent(AchievementEvent event){
         adapter.af.aa.activateAchievement(event.pos);
     }
-
-
+    //ViewPager that manages tabs for MainActivity
     public class SamplePagerAdapter extends FragmentPagerAdapter {
-        private final String[] TITLES = {"Building", "Upgrade", "Achievements", "Stats", "Prestige", "ITEM SIX", "ITEM SEVEN", "ITEM EIGHT",
-                "ITEM NINE", "ITEM TEN", "ITEM ELEVEN"};
+        private final String[] TITLES = {"Building", "Upgrade", "Achievements", "Stats", "Prestige"};
         private final ArrayList<String> mTitles;
         public BuildingsFragment bf;
         public AchievementsFragment af;
@@ -103,17 +101,9 @@ public class MainActivity extends AppCompatActivity  {
                     af= AchievementsFragment.newInstance();
                     return af;
                 }
-                case 3:{
-                    return StatsFragment.newInstance();
-                }
-                case 4:{
-                    return PrestigeFragment.newInstance();
-                }
             }
-            return SampleFragment.newInstance(position);
+            return null;
         }
         }
-
-
-            }
+}
 

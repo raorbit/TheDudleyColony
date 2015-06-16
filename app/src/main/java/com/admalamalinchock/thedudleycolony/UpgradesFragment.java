@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 public class UpgradesFragment extends Fragment  {
+    //Called by the ViewPager that manages Fragments in tabs
     public static UpgradesFragment newInstance() {
         UpgradesFragment fragment = new UpgradesFragment();
         return fragment;
@@ -22,11 +23,16 @@ public class UpgradesFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_upgrades, container, false);
+        //Creates a new RecyclerView from the XML file  in /res/layout/fragment_upgrades.xml
         RecyclerView recList = (RecyclerView) v.findViewById(R.id.upgradeList);
+        //tells RecyclerView the list is dynamic
         recList.setHasFixedSize(false);
+        //Sets a linearlayout for the list
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        //tells manager the layout is vertical and sets the manager to the RecyclerView
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
+        //creates and sets adapter for recycler list
         UpgradeAdapter ua = new UpgradeAdapter();
         recList.setAdapter(ua);
         return v;
