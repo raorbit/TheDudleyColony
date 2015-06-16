@@ -9,4 +9,6 @@ File>Open then select our build.gradle file
 After the project is done importing go to Run>Run'app'
 then select Launch emulator on the popup and click ok
 A virtual android device will now run then find and select our App and run it.
- 
+We developed our code using Git to synchronize our code between ourselves.
+You can track and see how our code evolved over time with each individual commit here;
+https://github.com/raorbit/TheDudleyColony
