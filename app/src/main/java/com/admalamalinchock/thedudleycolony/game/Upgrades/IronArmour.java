@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class IronArmour extends Upgrade
 {
+    //using the super constructor from the Upgrade class
     public IronArmour()
     {
         super(new BigDecimal(2500), "Iron Armour", "Its better than wood. Protects from almost nothing but at least it is something. Multiplies Dudley gain by 2.75.",new BigDecimal("2.75"));

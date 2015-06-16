@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class Headset extends Upgrade
 {
+    //using the super constructor from the Upgrade class
     public Headset()
     {
         super(new BigDecimal(1000), "Headset", "Over the ear audio out putters to improve sounds. Also considered very fashionable. Multiplies Dudley gain by 2.5.",new BigDecimal("2.5"));

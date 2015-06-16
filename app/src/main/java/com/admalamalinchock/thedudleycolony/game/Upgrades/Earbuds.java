@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  */
 public class Earbuds extends Upgrade
 {
-
+    //using the super constructor from the Upgrade class
     public Earbuds()
     {
         super(new BigDecimal(875), "Earbuds", "Small in-ear devices to play audio. Mostly used for music. The music increases the production of the Dudleys by giving them personalization. Multiplies Dudley gain by 2.5.",new BigDecimal("2.5"));

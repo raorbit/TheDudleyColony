@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class Rifle extends Upgrade
 {
+    //using the super constructor from the Upgrade class
     public Rifle()
     {
         super(new BigDecimal(20000), "Rifle", "A large gun specializing in long range engages. Multiplies Dudley gain by 4.",new BigDecimal("4"));

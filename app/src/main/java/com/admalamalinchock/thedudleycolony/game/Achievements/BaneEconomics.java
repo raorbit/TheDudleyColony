@@ -7,6 +7,6 @@ public class BaneEconomics extends Achievements
 {
     public BaneEconomics()
     {
-        super("Bane Economics","Own 60 cities.", 3, 60);
+        super("Bane Economics","Own 60 cities.", 3, 60);    //using the super constructor from achievements to create the given achievement
     }
 }

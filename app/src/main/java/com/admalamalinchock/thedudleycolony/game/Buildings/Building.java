@@ -2,13 +2,14 @@ package com.admalamalinchock.thedudleycolony.game.Buildings;
 /**
  * Created by HoldenMalinchock on 5/18/15.
  */
-import com.admalamalinchock.thedudleycolony.game.Game;
-import java.math.BigDecimal;
+import com.admalamalinchock.thedudleycolony.game.Game;      //importing the game class
+import java.math.BigDecimal;        //importing the BigDecimal class so we can handle large numbers of buildings without rounding errors
+
 public abstract class Building
 {
     protected BigDecimal price;
     protected BigDecimal rate;
-    protected BigDecimal payout;
+    protected BigDecimal payout;        //what the building produces in a given amount of time
     protected BigDecimal numOfBuildings;
     private String nameofBuilding = "";
     public double timeToPayout,time;
@@ -16,7 +17,7 @@ public abstract class Building
     private boolean isActive;
     public int ID;
     public Building(){}
-    public Building(BigDecimal enteredprice, BigDecimal r,BigDecimal payout, String enteredname,double time,int i)
+    public Building(BigDecimal enteredprice, BigDecimal r,BigDecimal payout, String enteredname,double time,int i)  //constructor with the price payout name and the time till payout and the ID number
     {
         price = enteredprice;
         rate=r;
@@ -31,8 +32,8 @@ public abstract class Building
     }
     public BigDecimal getNumOfBuildings() {
     return numOfBuildings;
-    }
-    public BigDecimal getPrice()
+    }   //get the number of buildings that they own
+    public BigDecimal getPrice()    //get the price of the next building
     {
       setScale();
       return price;
@@ -40,22 +41,22 @@ public abstract class Building
     public String getName()
     {
         return nameofBuilding;
-    }
-    public BigDecimal changePrice(BigDecimal newVal)
+    }   //returns the name of the building
+    public BigDecimal changePrice(BigDecimal newVal)        //change the price of a building
     {
         price = newVal;
         return price;
     }
     public void  incrementPrice() {
         price=price.multiply(rate);
-    }
-    public void  Payout() {
+    }   //the method called whenever you buy a building, it increases at a rate specific to each building
+    public void  Payout() {     //calculating the payout of a building
         time=timeToPayout;
         Game.addToBalance(getPayout());
     }
     public BigDecimal getPayout() {
         return payout.multiply(getMultiplier());
-    }
+    }       //get the payout
     public BigDecimal getMultiplier(){
         return Game.factorUpgrades().multiply(numOfBuildings);
     }
@@ -74,7 +75,7 @@ public abstract class Building
     }
     public boolean isActive(){
         return isActive;
-    }
+    }   //method to check if there are achievements or upgrades active
     public void setActive(){
         isActive=true;
     }

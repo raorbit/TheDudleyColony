@@ -7,6 +7,6 @@ public class FinalFrontier extends Achievements
 {
     public FinalFrontier()
     {
-        super("Final Frontier","Own 60 SolarSystems.",8,60);
+        super("Final Frontier","Own 60 SolarSystems.",8,60);    //using the super constructor from achievements to create the given achievement
     }
 }

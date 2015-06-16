@@ -8,5 +8,5 @@ public class ShantyTownII extends Achievements
     public ShantyTownII()
     {
         super("Shanty Town II","Own 150 shacks.", 1, 150);
-    }
+    }   //using the super constructor from achievements to create the given achievement
 }

@@ -8,9 +8,9 @@ import java.math.BigDecimal;        //importing the BigDecimal so java can handl
 public class Shack extends Building
 {
   public final int ID = 1;
-       //like the getPrice method but we can change this for different buildings later in the main class
+
   public Shack()
   {
-    super(new BigDecimal(200),new BigDecimal("1.1"),new BigDecimal("5"),"Shack",2,1);
+    super(new BigDecimal(200),new BigDecimal("1.1"),new BigDecimal("5"),"Shack",2,1);   //using the super constructor
   }
 }

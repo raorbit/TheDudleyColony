@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class IBanana extends Upgrade
 {
+    //using the super constructor from the Upgrade class
     public IBanana()
     {
         super(new BigDecimal(600), "IBanana", "The phone for the Dudleys to communicate. Multiplies Dudley gain by 2.",new BigDecimal("2"));

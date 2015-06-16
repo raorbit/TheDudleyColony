@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class PulseRifle extends Upgrade
 {
+    //using the super constructor from the Upgrade class
     public PulseRifle()
     {
         super(new BigDecimal(30000), "Pulse Rifle", "The most powerful weapon of its time.Multiplies Dudley gain by 4.5",new BigDecimal("4.5"));

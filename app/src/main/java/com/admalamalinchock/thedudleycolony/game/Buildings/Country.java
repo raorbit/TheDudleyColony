@@ -7,11 +7,11 @@ import java.math.BigDecimal;         //importing the BigDecimal so java can hand
  */
 public class Country extends Building
 {
-    public final int ID = 5;
+    public final int ID = 5;    //creating the ID for this building
 
     public Country()
     {
-        super(new BigDecimal(20000),new BigDecimal("1.1"),new BigDecimal("5"),"Country",2,5);
+        super(new BigDecimal(20000),new BigDecimal("1.1"),new BigDecimal("5"),"Country",2,5);       //using the super constructor
     }
 
 }

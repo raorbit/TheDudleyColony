@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class Sunglasses extends Upgrade
 {
+    //using the super constructor from the Upgrade class
     public Sunglasses()
     {
         super(new BigDecimal(350), "Sunglasses", "Gets the sun out of your eyes. Multiplies Dudley gain by 2.",new BigDecimal("2"));

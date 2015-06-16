@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 public class DiamondArmour extends Upgrade
 {
+    //using the super constructor from the Upgrade class
     public DiamondArmour()
     {
         super(new BigDecimal(10000), "Diamond Armour", "The second most powerful armour possible. Crafted from pure diamonds and cut to perfectly fit the wearer. Multiplies Dudley gain by 2.75.",new BigDecimal("2.75"));

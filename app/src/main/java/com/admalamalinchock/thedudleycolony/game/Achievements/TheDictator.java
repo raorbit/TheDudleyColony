@@ -8,7 +8,7 @@ public class TheDictator extends Achievements
     public TheDictator()
     {
         super("The Dictator","Own 60 countries.",5,60);
-    }
+    }   //using the super constructor from achievements to create the given achievement
 
 
 }
